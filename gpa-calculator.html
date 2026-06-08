@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Use GradeGuard's GPA Calculator page to understand percentage-to-GPA conversions and weighted GPA calculations.">
+  <title>GradeGuard | GPA Calculator</title>
+</head>
+<body>
+  <header>
+    <h1>GPA Calculator</h1>
+    <p>Estimate your overall GPA using course percentages and credit hours.</p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="course.html">Course Detail</a></li>
+        <li><a href="gpa-calculator.html" aria-current="page">GPA Calculator</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="about.html">About / Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading">GPA Overview</h2>
+      <p>
+        This page explains how GradeGuard converts course percentages into GPA points and calculates
+        an overall weighted GPA. In the final interactive version, students will be able to enter
+        their courses, grades, and credit hours to receive an instant GPA result.
+      </p>
+    </section>
+
+    <section aria-labelledby="calculator-heading">
+      <h2 id="calculator-heading">Manual GPA Calculator</h2>
+      <p>
+        Enter your course information below. This HTML version shows the planned form layout. The
+        JavaScript version will calculate the GPA automatically.
+      </p>
+
+      <form action="gpa-calculator.html" method="get">
+        <fieldset>
+          <legend>Course 1</legend>
+          <p>
+            <label for="course-1-name">Course Name</label><br>
+            <input type="text" id="course-1-name" name="course-1-name" placeholder="Example: DIGT 1302">
+          </p>
+          <p>
+            <label for="course-1-grade">Course Percentage</label><br>
+            <input type="number" id="course-1-grade" name="course-1-grade" min="0" max="100" step="0.01" placeholder="Example: 86">
+          </p>
+          <p>
+            <label for="course-1-credits">Credit Hours</label><br>
+            <input type="number" id="course-1-credits" name="course-1-credits" min="0" step="0.5" placeholder="Example: 3">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Course 2</legend>
+          <p>
+            <label for="course-2-name">Course Name</label><br>
+            <input type="text" id="course-2-name" name="course-2-name" placeholder="Example: Psychology 1010">
+          </p>
+          <p>
+            <label for="course-2-grade">Course Percentage</label><br>
+            <input type="number" id="course-2-grade" name="course-2-grade" min="0" max="100" step="0.01" placeholder="Example: 74">
+          </p>
+          <p>
+            <label for="course-2-credits">Credit Hours</label><br>
+            <input type="number" id="course-2-credits" name="course-2-credits" min="0" step="0.5" placeholder="Example: 3">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Course 3</legend>
+          <p>
+            <label for="course-3-name">Course Name</label><br>
+            <input type="text" id="course-3-name" name="course-3-name" placeholder="Example: Statistics 1000">
+          </p>
+          <p>
+            <label for="course-3-grade">Course Percentage</label><br>
+            <input type="number" id="course-3-grade" name="course-3-grade" min="0" max="100" step="0.01" placeholder="Example: 78">
+          </p>
+          <p>
+            <label for="course-3-credits">Credit Hours</label><br>
+            <input type="number" id="course-3-credits" name="course-3-credits" min="0" step="0.5" placeholder="Example: 4">
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Calculate GPA</button>
+          <button type="reset">Clear Form</button>
+        </p>
+      </form>
+    </section>
+
+    <section aria-labelledby="scale-heading">
+      <h2 id="scale-heading">Percentage to GPA Scale</h2>
+      <p>
+        GradeGuard uses a standard 4.0 GPA scale. The scale below is an example and can be adjusted
+        if a specific university uses different conversion rules.
+      </p>
+
+      <table>
+        <caption>GradeGuard GPA Conversion Chart</caption>
+        <thead>
+          <tr>
+            <th scope="col">Percentage Range</th>
+            <th scope="col">Letter Grade</th>
+            <th scope="col">GPA Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>90% - 100%</td>
+            <td>A+</td>
+            <td>4.0</td>
+          </tr>
+          <tr>
+            <td>80% - 89%</td>
+            <td>A</td>
+            <td>3.8</td>
+          </tr>
+          <tr>
+            <td>75% - 79%</td>
+            <td>B+</td>
+            <td>3.3</td>
+          </tr>
+          <tr>
+            <td>70% - 74%</td>
+            <td>B</td>
+            <td>3.0</td>
+          </tr>
+          <tr>
+            <td>65% - 69%</td>
+            <td>C+</td>
+            <td>2.3</td>
+          </tr>
+          <tr>
+            <td>60% - 64%</td>
+            <td>C</td>
+            <td>2.0</td>
+          </tr>
+          <tr>
+            <td>55% - 59%</td>
+            <td>D+</td>
+            <td>1.3</td>
+          </tr>
+          <tr>
+            <td>50% - 54%</td>
+            <td>D</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td>0% - 49%</td>
+            <td>F</td>
+            <td>0.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="sample-heading">
+      <h2 id="sample-heading">Sample GPA Breakdown</h2>
+      <p>
+        The table below shows an example of how courses are weighted by credit hours when calculating
+        an overall GPA.
+      </p>
+
+      <table>
+        <caption>Example Weighted GPA Calculation</caption>
+        <thead>
+          <tr>
+            <th scope="col">Course</th>
+            <th scope="col">Percentage</th>
+            <th scope="col">GPA Points</th>
+            <th scope="col">Credit Hours</th>
+            <th scope="col">Weighted Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DIGT 1302</td>
+            <td>86%</td>
+            <td>3.8</td>
+            <td>3</td>
+            <td>11.4</td>
+          </tr>
+          <tr>
+            <td>Introduction to Psychology</td>
+            <td>74%</td>
+            <td>3.0</td>
+            <td>3</td>
+            <td>9.0</td>
+          </tr>
+          <tr>
+            <td>Statistics</td>
+            <td>78%</td>
+            <td>3.3</td>
+            <td>4</td>
+            <td>13.2</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Totals</th>
+            <td>10</td>
+            <td>33.6</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p><strong>Overall GPA:</strong> 33.6 weighted points divided by 10 credit hours = 3.36 GPA</p>
+    </section>
+
+    <section aria-labelledby="formula-heading">
+      <h2 id="formula-heading">GPA Formula</h2>
+      <p>
+        To calculate weighted GPA, GradeGuard uses this formula:
+      </p>
+      <p>
+        <strong>Overall GPA = Total Weighted GPA Points ÷ Total Credit Hours</strong>
+      </p>
+      <p>
+        Weighted GPA points are found by multiplying each course's GPA points by its credit hours.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p><strong>GradeGuard</strong> - GPA Calculator</p>
+    <p><a href="index.html">Back to Dashboard</a></p>
+  </footer>
+</body>
+</html>

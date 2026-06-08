@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how GradeGuard helps students track grades, calculate GPA, and plan academic goals.">
+  <title>About GradeGuard</title>
+</head>
+<body>
+  <header>
+    <h1>About GradeGuard</h1>
+    <p>A simple academic planning tool for university students.</p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="course.html">Course Detail</a></li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="about.html" aria-current="page">About / Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="purpose-heading">
+      <h2 id="purpose-heading">Purpose of the Website</h2>
+      <p>
+        GradeGuard is a client-side web application designed to help university students understand
+        and manage their academic performance. Instead of using confusing spreadsheets or doing
+        manual calculations, students can enter course grades, assignment weights, and credit hours
+        to see a clearer picture of their progress.
+      </p>
+      <p>
+        The goal of GradeGuard is to reduce stress by giving students quick feedback about their
+        current standing, future grade goals, and overall GPA.
+      </p>
+    </section>
+
+    <section aria-labelledby="team-heading">
+      <h2 id="team-heading">Project Information</h2>
+      <dl>
+        <dt>Course</dt>
+        <dd>DIGT 1302 - Web Development Basics</dd>
+
+        <dt>Professor</dt>
+        <dd>Prof. May Haidar</dd>
+
+        <dt>Group</dt>
+        <dd>Group 8</dd>
+
+        <dt>Project Date</dt>
+        <dd>May 17, 2026</dd>
+      </dl>
+
+      <h3>Team Members</h3>
+      <ul>
+        <li>Jeffray Zhang - 221999826 - jeffray8@my.yorku.ca</li>
+        <li>Arya Holmukhe - 222129282 - aryaholm@my.yorku.ca</li>
+        <li>Alia Hagi-Dhaffe - 221264890 - aliahd@my.yorku.ca</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="features-heading">
+      <h2 id="features-heading">Main Features</h2>
+
+      <article>
+        <h3>Dashboard</h3>
+        <p>
+          The dashboard shows an overview of all courses, current grades, GPA, and academic status.
+          Courses are shown with clear status labels such as green, yellow, or red depending on the
+          current grade.
+        </p>
+      </article>
+
+      <article>
+        <h3>Course Management</h3>
+        <p>
+          Students can create course profiles and add assignment information, including assignment
+          name, score, and weight toward the final course grade.
+        </p>
+      </article>
+
+      <article>
+        <h3>What-If Calculator</h3>
+        <p>
+          The What-If Calculator helps students plan ahead by calculating what score is needed on
+          remaining assessments to reach a target final grade.
+        </p>
+      </article>
+
+      <article>
+        <h3>GPA Calculator</h3>
+        <p>
+          The GPA Calculator converts course percentages into GPA points on a 4.0 scale and uses
+          credit hours to calculate a weighted overall GPA.
+        </p>
+      </article>
+    </section>
+
+    <section aria-labelledby="instructions-heading">
+      <h2 id="instructions-heading">How to Use GradeGuard</h2>
+      <ol>
+        <li>Start on the dashboard and review your current course summary.</li>
+        <li>Add a new course by entering the course name and credit hours.</li>
+        <li>Open the course detail page to add assignments, scores, and weights.</li>
+        <li>Use the What-If Calculator to test different final grade goals.</li>
+        <li>Visit the GPA Calculator page to estimate your overall GPA.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="grading-heading">
+      <h2 id="grading-heading">Grading Logic</h2>
+
+      <h3>Weighted Course Grade</h3>
+      <p>
+        A course grade is calculated by multiplying each assignment score by its weight and then
+        adding the weighted values together. For example, if an assignment is worth 20% of the course
+        and the student earns 80%, that assignment contributes 16 percentage points to the final grade.
+      </p>
+
+      <h3>Completed Course Weight</h3>
+      <p>
+        Completed course weight is the total percentage of the course that has already been graded.
+        This helps students understand how much of the course mark is already known.
+      </p>
+
+      <h3>What-If Calculation</h3>
+      <p>
+        The What-If Calculator compares the student's current weighted grade with the desired final
+        grade. It then calculates the score needed on the remaining course weight to reach the target.
+      </p>
+
+      <h3>GPA Calculation</h3>
+      <p>
+        The GPA Calculator converts each course percentage into a GPA value and then weights that GPA
+        value by the course credit hours. The final GPA is the total weighted GPA points divided by
+        the total credit hours.
+      </p>
+    </section>
+
+    <section aria-labelledby="accessibility-heading">
+      <h2 id="accessibility-heading">Accessibility and Design Goals</h2>
+      <ul>
+        <li>Pages use semantic HTML elements such as header, nav, main, section, article, and footer.</li>
+        <li>Forms use labels so users can clearly understand each input field.</li>
+        <li>Colour is not the only indicator of status; text labels are also provided.</li>
+        <li>The planned design will be responsive for both desktop and mobile screens.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p><strong>GradeGuard</strong> - Group 8</p>
+    <p><a href="index.html">Back to Dashboard</a></p>
+  </footer>
+</body>
+</html>
