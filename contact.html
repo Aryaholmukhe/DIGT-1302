@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact the GradeGuard team, send feedback, ask questions about grade tracking tools, and request support for the project prototype.">
+  <title>GradeGuard | Contact</title>
+</head>
+<body>
+  <header>
+    <h1>GradeGuard</h1>
+    <p>Take control of your grades, GPA, and academic goals.</p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="courses.html">My Courses</a></li>
+        <li><a href="course-detail.html">Course Detail</a></li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="about.html">About / Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <nav aria-label="Breadcrumb">
+      <p>
+        <a href="index.html">Dashboard</a> &gt; <strong>Contact</strong>
+      </p>
+    </nav>
+
+    <section aria-labelledby="contact-overview-heading">
+      <h2 id="contact-overview-heading">Contact GradeGuard</h2>
+      <p>
+        Use this page to ask questions, report a problem, or send feedback about the GradeGuard
+        dashboard, course tools, GPA calculator, or profile features.
+      </p>
+      <p>
+        This Phase 1 version presents the planned support structure. The form below demonstrates the
+        contact features that will be connected to real feedback handling in a later phase.
+      </p>
+    </section>
+
+    <section aria-labelledby="contact-options-heading">
+      <h2 id="contact-options-heading">Project Contact Information</h2>
+
+      <article>
+        <h3>Team Contact Directory</h3>
+        <address>
+          <p><strong>Jeffray Zhang</strong> - <a href="mailto:jeffray8@my.yorku.ca">jeffray8@my.yorku.ca</a></p>
+          <p><strong>Arya Holmukhe</strong> - <a href="mailto:aryaholm@my.yorku.ca">aryaholm@my.yorku.ca</a></p>
+          <p><strong>Alia Hagi-Dhaffe</strong> - <a href="mailto:aliahd@my.yorku.ca">aliahd@my.yorku.ca</a></p>
+          <p><strong>Steven Passynkov</strong> - <a href="mailto:stevenp7@my.yorku.ca">stevenp7@my.yorku.ca</a></p>
+        </address>
+      </article>
+
+      <article>
+        <h3>When to Use This Page</h3>
+        <ul>
+          <li>Ask how GradeGuard calculates weighted grades or GPA.</li>
+          <li>Request help understanding the Course Detail or What-If Calculator pages.</li>
+          <li>Report a missing feature, confusing form, or navigation issue.</li>
+          <li>Share improvement ideas for future phases of the project.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Expected Response Details</h3>
+        <dl>
+          <dt>Best contact method</dt>
+          <dd>University email</dd>
+
+          <dt>Typical response goal</dt>
+          <dd>Within 2 to 3 school days</dd>
+
+          <dt>Support topics</dt>
+          <dd>General questions, grade tracking, GPA calculation, and profile setup</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section aria-labelledby="contact-form-heading">
+      <h2 id="contact-form-heading">Send a Message</h2>
+      <p>
+        Complete the form below so the team can understand your question and reply using the method
+        you prefer.
+      </p>
+
+      <form action="contact.html" method="get">
+        <fieldset>
+          <legend>Your information</legend>
+
+          <p>
+            <label for="contact-name">Full Name</label><br>
+            <input type="text" id="contact-name" name="contact-name" placeholder="Example: Jordan Lee" autocomplete="name" required>
+          </p>
+
+          <p>
+            <label for="contact-email">Email Address</label><br>
+            <input type="email" id="contact-email" name="contact-email" placeholder="name@my.yorku.ca" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="contact-phone">Phone Number</label><br>
+            <input type="tel" id="contact-phone" name="contact-phone" placeholder="Example: 416-555-1234" autocomplete="tel">
+          </p>
+
+          <p>
+            <label for="student-role">I am a</label><br>
+            <select id="student-role" name="student-role" required>
+              <option value="">Select one option</option>
+              <option value="student">Student user</option>
+              <option value="instructor">Instructor or teaching staff</option>
+              <option value="teammate">Project team member</option>
+              <option value="visitor">Other visitor</option>
+            </select>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Message details</legend>
+
+          <p>
+            <label for="message-topic">Topic</label><br>
+            <select id="message-topic" name="message-topic" required>
+              <option value="">Choose a topic</option>
+              <option value="general">General question</option>
+              <option value="grades">Grade tracking</option>
+              <option value="what-if">What-If Calculator</option>
+              <option value="gpa">GPA Calculator</option>
+              <option value="profile">Profile or sign-in</option>
+              <option value="feedback">Feature suggestion or feedback</option>
+              <option value="technical">Technical problem</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="related-page">Related Page</label><br>
+            <select id="related-page" name="related-page">
+              <option value="dashboard">Dashboard</option>
+              <option value="courses">My Courses</option>
+              <option value="course-detail">Course Detail</option>
+              <option value="gpa-calculator">GPA Calculator</option>
+              <option value="profile">Profile</option>
+              <option value="faq">FAQ</option>
+              <option value="contact">Contact</option>
+              <option value="about">About / Help</option>
+            </select>
+          </p>
+
+          <fieldset>
+            <legend>Urgency Level</legend>
+            <p>
+              <input type="radio" id="urgency-low" name="urgency-level" value="low" required>
+              <label for="urgency-low">Low</label><br>
+              <input type="radio" id="urgency-medium" name="urgency-level" value="medium">
+              <label for="urgency-medium">Medium</label><br>
+              <input type="radio" id="urgency-high" name="urgency-level" value="high">
+              <label for="urgency-high">High</label>
+            </p>
+          </fieldset>
+
+          <p>
+            <label for="reply-date">Preferred Reply Date</label><br>
+            <input type="date" id="reply-date" name="reply-date">
+          </p>
+
+          <p>
+            <label for="message-subject">Subject</label><br>
+            <input type="text" id="message-subject" name="message-subject" placeholder="Example: Help understanding weighted grades" required>
+          </p>
+
+          <p>
+            <label for="message-body">Message</label><br>
+            <textarea id="message-body" name="message-body" rows="6" cols="40" placeholder="Describe your question, issue, or suggestion here." required></textarea>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Reply preferences</legend>
+          <p>
+            <input type="checkbox" id="reply-email" name="reply-method" value="email">
+            <label for="reply-email">Reply by email</label><br>
+            <input type="checkbox" id="reply-phone" name="reply-method" value="phone">
+            <label for="reply-phone">Reply by phone if needed</label><br>
+            <input type="checkbox" id="project-updates" name="reply-method" value="updates">
+            <label for="project-updates">Send future project update notices</label>
+          </p>
+        </fieldset>
+
+        <p>
+          <input type="checkbox" id="contact-consent" name="contact-consent" required>
+          <label for="contact-consent">I understand this Phase 1 contact form is a static HTML prototype and does not yet send live messages.</label>
+        </p>
+
+        <p>
+          <button type="submit">Send Message</button>
+          <button type="reset">Clear Form</button>
+        </p>
+      </form>
+    </section>
+
+    <section aria-labelledby="next-steps-heading">
+      <h2 id="next-steps-heading">What Happens Next</h2>
+      <ol>
+        <li>Users choose the most relevant topic and related page.</li>
+        <li>The form captures enough detail to understand the request clearly.</li>
+        <li>In a later phase, JavaScript can validate entries and show confirmation feedback.</li>
+        <li>The final version can connect this form to a real support or feedback workflow.</li>
+      </ol>
+    </section>
+
+    <aside aria-labelledby="help-navigation-heading">
+      <h2 id="help-navigation-heading">Other Helpful Pages</h2>
+      <ul>
+        <li><a href="faq.html">FAQ</a> - read answers to common questions first.</li>
+        <li><a href="about.html">About / Help</a> - review the project purpose and grading logic.</li>
+        <li><a href="course-detail.html">Course Detail</a> - check assignment and What-If information.</li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a> - see the GPA conversion chart and example.</li>
+        <li><a href="profile.html">Profile</a> - manage account and university information.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <hr>
+    <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
+    <p>Group 8: Jeffray Zhang, Arya Holmukhe, Alia Hagi-Dhaffe, and Steven Passynkov</p>
+    <p>Professor May Haidar | June 10, 2026</p>
+  </footer>
+</body>
+</html>

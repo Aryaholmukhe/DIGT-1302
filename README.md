@@ -25,8 +25,11 @@ GradeGuard is a client-side web application designed to help university students
 7. `profile.html` — User profile page with sign in and create account forms
 8. `faq.html` — Frequently asked questions organized by topic (general, grades, GPA, privacy, troubleshooting)
 
+## GitHub Repository Link
+[GradeGuard Repository](https://github.com/Aryaholmukhe/DIGT-1302)
+
 ## GitHub Pages Link
-[https://aryaholmukhe.github.io/DIGT-1302/]
+[GradeGuard Live Site](https://aryaholmukhe.github.io/DIGT-1302/)
 
 ## Technologies
 - Semantic HTML5
@@ -35,9 +38,10 @@ GradeGuard is a client-side web application designed to help university students
 - No external frameworks or libraries
 
 ## Validation
-All HTML pages validated using the W3C Markup Validation Service.
+HTML pages should be checked with the [W3C Markup Validation Service](https://validator.w3.org/) before final submission.
 
 ## Credits
 - All content: Work by the GradeGuard team (Group 8)
+- No external images or media are currently used in this Phase 1 version
 - Built for DIGT 1302 — Web Development Basics at York University, Summer 2026
 - Professor May Haidar
