@@ -10,6 +10,7 @@ Phase 1: Content Development
 - Jeffray Zhang, 221999826, jeffray8@my.yorku.ca
 - Arya Holmukhe, 222129282, aryaholm@my.yorku.ca
 - Alia Hagi-Dhaffe, 221264890, aliahd@my.yorku.ca
+- Steven Passynkov, 221955471, stevenp7@my.yorku.ca
 
 ## Project Description
 GradeGuard is a client-side web application designed to help university students take control of their academic performance. Students can input course assignments and grades, calculate their current course standing, and simulate "what-if" scenarios to determine scores needed on future assessments. It also includes a GPA calculator to provide a comprehensive view of their academic standing.
