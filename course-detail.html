@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GradeGuard - View course detail, add assignments, and use the What-If Calculator to plan your target grade.">
+  <title>GradeGuard | Course Detail</title>
+</head>
+<body>
+  <header>
+    <h1>GradeGuard</h1>
+    <p>Take control of your grades, GPA, and academic goals.</p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="courses.html">My Courses</a></li>
+        <li><a href="course-detail.html" aria-current="page">Course Detail</a></li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="about.html">About / Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <nav aria-label="Breadcrumb">
+      <p>
+        <a href="index.html">Dashboard</a> &gt;
+        <a href="courses.html">My Courses</a> &gt;
+        <strong>Course Detail</strong>
+      </p>
+    </nav>
+
+    <section aria-labelledby="course-info-heading">
+      <h2 id="course-info-heading">Course Information</h2>
+
+      <p><strong>Course Name:</strong> DIGT 1302 - Web Development Basics</p>
+      <p><strong>Course Code:</strong> DIGT 1302</p>
+      <p><strong>Credit Hours:</strong> 3</p>
+      <p><strong>Target Grade:</strong> 85%</p>
+    </section>
+
+    <section aria-labelledby="current-grade-heading">
+      <h2 id="current-grade-heading">Current Weighted Grade</h2>
+
+      <p><strong>Your current calculated grade:</strong> 86%</p>
+      <p><strong>Completed coursework weight:</strong> 45%</p>
+      <p><strong>Remaining coursework weight:</strong> 55%</p>
+
+      <progress max="100" value="45">45%</progress>
+      <p>45% of total course weight has been completed and graded.</p>
+
+      <p><strong>Status:</strong> Green - 80% and above</p>
+    </section>
+
+    <section aria-labelledby="assignments-heading">
+      <h2 id="assignments-heading">Assignments</h2>
+      <p>
+        Below is a list of all assignments you have added for this course. Each assignment shows
+        your score and its weight toward the final grade. You can add more assignments using the
+        form below.
+      </p>
+
+      <table aria-label="Assignment list showing name, score, weight, and actions">
+        <thead>
+          <tr>
+            <th scope="col">Assignment Name</th>
+            <th scope="col">Your Score (%)</th>
+            <th scope="col">Weight Toward Final Grade (%)</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Assignment 1 - HTML Basics</td>
+            <td>90%</td>
+            <td>15%</td>
+            <td><button type="button">Remove</button></td>
+          </tr>
+          <tr>
+            <td>Assignment 2 - CSS Layout</td>
+            <td>85%</td>
+            <td>15%</td>
+            <td><button type="button">Remove</button></td>
+          </tr>
+          <tr>
+            <td>Midterm Exam</td>
+            <td>82%</td>
+            <td>15%</td>
+            <td><button type="button">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><em>
+        Note: In the complete version, you will be able to add and remove assignments dynamically.
+        New assignments will appear in this table after you submit the form below.
+      </em></p>
+    </section>
+
+    <section aria-labelledby="add-assignment-heading">
+      <h2 id="add-assignment-heading">Add an Assignment</h2>
+      <p>
+        Enter the details of your assignment below. Make sure the weight reflects how much this
+        assignment counts toward your final grade according to your course syllabus.
+      </p>
+
+      <form action="#" method="get">
+        <p>
+          <label for="assignment-name">Assignment Name</label><br>
+          <input type="text" id="assignment-name" name="assignment-name" placeholder="Example: Midterm Exam" required>
+        </p>
+
+        <p>
+          <label for="assignment-score">Your Score (%)</label><br>
+          <input type="number" id="assignment-score" name="assignment-score" min="0" max="100" placeholder="Example: 88" required>
+        </p>
+
+        <p>
+          <label for="assignment-weight">Weight Toward Final Grade (%)</label><br>
+          <input type="number" id="assignment-weight" name="assignment-weight" min="1" max="100" placeholder="Example: 25" required>
+        </p>
+
+        <p>
+          <button type="submit">Add Assignment</button>
+        </p>
+      </form>
+
+      <p><em>
+        Form validation will be added in a later phase to prevent invalid entries such as negative
+        scores or total weight exceeding 100%.
+      </em></p>
+    </section>
+
+    <section aria-labelledby="whatif-heading" id="what-if-calculator">
+      <h2 id="whatif-heading">What-If Calculator</h2>
+      <p>
+        Find out what score you need on your remaining assessments to reach your target final grade.
+        Enter your desired final grade and the total weight of all remaining assessments, then click
+        Calculate.
+      </p>
+
+      <p><strong>How it works:</strong> The What-If Calculator uses your current weighted grade and
+      the weight of your remaining assessments to determine the minimum score you need on those
+      future assessments to achieve your goal.</p>
+
+      <form action="#" method="get">
+        <p>
+          <label for="desired-grade">Desired Final Grade (%)</label><br>
+          <input type="number" id="desired-grade" name="desired-grade" min="0" max="100" placeholder="Example: 85" required>
+        </p>
+
+        <p>
+          <label for="remaining-weight">Weight of Remaining Assessments (%)</label><br>
+          <input type="number" id="remaining-weight" name="remaining-weight" min="1" max="100" placeholder="Example: 55" required>
+        </p>
+
+        <p>
+          <button type="submit">Calculate Required Score</button>
+        </p>
+      </form>
+
+      <article aria-labelledby="whatif-result-heading">
+        <h3 id="whatif-result-heading">Calculation Result</h3>
+        <p><em>
+          Enter your desired grade and the weight of remaining assessments above, then click
+          Calculate. The result will appear here. This feature will be fully functional with
+          JavaScript in a later phase.
+        </em></p>
+        <p><strong>Example:</strong> With a current grade of 86% and 55% of coursework remaining,
+        if you want to finish with an 85%, you would need to score approximately 84% on your
+        remaining assessments.</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="course-tips-heading">
+      <h2 id="course-tips-heading">Tips for This Course</h2>
+
+      <ul>
+        <li>Keep your assignment scores up to date as soon as grades are released.</li>
+        <li>Make sure the total weight of all assignments does not exceed 100%.</li>
+        <li>Use the What-If Calculator before major exams to set realistic study targets.</li>
+        <li>Check the GPA Calculator to see how this course affects your overall academic standing.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
+    <p>Group 8: Jeffray Zhang, Arya Holmukhe, and Alia Hagi-Dhaffe</p>
+    <p>Professor May Haidar | May 17, 2026</p>
+  </footer>
+</body>
+</html>
