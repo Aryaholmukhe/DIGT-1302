@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your GradeGuard profile, sign in, and create an account for storing university and academic planning details.">
+  <title>GradeGuard | Profile</title>
+</head>
+<body>
+  <header>
+    <h1>GradeGuard</h1>
+    <p>Take control of your grades, GPA, and academic goals.</p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="courses.html">My Courses</a></li>
+        <li><a href="course-detail.html">Course Detail</a></li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+        <li><a href="profile.html" aria-current="page">Profile</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About / Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <nav aria-label="Breadcrumb">
+      <p>
+        <a href="index.html">Dashboard</a> &gt; <strong>Profile</strong>
+      </p>
+    </nav>
+
+    <section aria-labelledby="profile-overview-heading">
+      <h2 id="profile-overview-heading">University Profile and Sign-In</h2>
+      <p>
+        This page is where students manage the personal and academic information that GradeGuard
+        will use to personalize course tracking, target grades, and future sign-in features.
+      </p>
+      <ul>
+        <li>Sign in to review saved courses and academic goals.</li>
+        <li>Create an account using your university information.</li>
+        <li>Set profile preferences such as study level, target grade, and reminder options.</li>
+        <li>Review the kind of data GradeGuard plans to store in later phases.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="saved-profile-heading">
+      <h2 id="saved-profile-heading">Sample Saved Profile</h2>
+      <article>
+        <h3>Student Summary</h3>
+        <dl>
+          <dt>Student Name</dt>
+          <dd>Sample Student</dd>
+
+          <dt>Student Number</dt>
+          <dd>221000000</dd>
+
+          <dt>University Email</dt>
+          <dd>sample@my.yorku.ca</dd>
+
+          <dt>Program</dt>
+          <dd>Digital Media</dd>
+
+          <dt>Year of Study</dt>
+          <dd>Second Year</dd>
+
+          <dt>Preferred <abbr title="Grade Point Average">GPA</abbr> Scale</dt>
+          <dd>4.0 scale</dd>
+
+          <dt>Default Target Course Grade</dt>
+          <dd>85%</dd>
+
+          <dt>Academic Standing Goal</dt>
+          <dd>Maintain strong progress across all registered courses</dd>
+        </dl>
+        <p>
+          <strong>Prototype note:</strong> This sample profile is static content for Phase 1. In a later
+          phase, GradeGuard will use JavaScript to save and display user-entered profile data.
+        </p>
+      </article>
+    </section>
+
+    <section aria-labelledby="signin-heading">
+      <h2 id="signin-heading">Sign In</h2>
+      <p>
+        Existing users can use this form to access their dashboard, review current grades, and return
+        to previously entered course information.
+      </p>
+
+      <form action="profile.html" method="get">
+        <fieldset>
+          <legend>Existing account access</legend>
+
+          <p>
+            <label for="signin-email">University Email</label><br>
+            <input type="email" id="signin-email" name="signin-email" placeholder="name@my.yorku.ca" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="signin-password">Password</label><br>
+            <input type="password" id="signin-password" name="signin-password" placeholder="Enter your password" autocomplete="current-password" minlength="8" required>
+          </p>
+
+          <p>
+            <input type="checkbox" id="remember-me" name="remember-me">
+            <label for="remember-me">Keep me signed in on this device</label>
+          </p>
+
+          <p>
+            <button type="submit">Sign In</button>
+            <button type="reset">Clear</button>
+          </p>
+        </fieldset>
+      </form>
+
+      <p><a href="#create-account">Need an account? Create one below.</a></p>
+    </section>
+
+    <section aria-labelledby="create-account-heading" id="create-account">
+      <h2 id="create-account-heading">Create Your GradeGuard Account</h2>
+      <p>
+        Complete the form below to create a profile that connects your university details with your
+        academic planning preferences.
+      </p>
+
+      <form action="profile.html" method="get">
+        <fieldset>
+          <legend>Personal information</legend>
+
+          <p>
+            <label for="first-name">First Name</label><br>
+            <input type="text" id="first-name" name="first-name" placeholder="Example: Jordan" autocomplete="given-name" required>
+          </p>
+
+          <p>
+            <label for="last-name">Last Name</label><br>
+            <input type="text" id="last-name" name="last-name" placeholder="Example: Lee" autocomplete="family-name" required>
+          </p>
+
+          <p>
+            <label for="student-number">Student Number</label><br>
+            <input type="text" id="student-number" name="student-number" placeholder="Example: 221999826" required>
+          </p>
+
+          <p>
+            <label for="account-email">University Email</label><br>
+            <input type="email" id="account-email" name="account-email" placeholder="name@my.yorku.ca" autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="phone-number">Phone Number</label><br>
+            <input type="tel" id="phone-number" name="phone-number" placeholder="Example: 416-555-1234" autocomplete="tel">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>University profile</legend>
+
+          <p>
+            <label for="program-name">Primary Program</label><br>
+            <select id="program-name" name="program-name" required>
+              <option value="">Select your program</option>
+              <option value="digital-media">Digital Media</option>
+              <option value="computer-science">Computer Science</option>
+              <option value="psychology">Psychology</option>
+              <option value="business">Business</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+
+          <fieldset>
+            <legend>Year of Study</legend>
+            <p>
+              <input type="radio" id="year-1" name="year-of-study" value="first-year" required>
+              <label for="year-1">First Year</label><br>
+              <input type="radio" id="year-2" name="year-of-study" value="second-year">
+              <label for="year-2">Second Year</label><br>
+              <input type="radio" id="year-3" name="year-of-study" value="third-year">
+              <label for="year-3">Third Year</label><br>
+              <input type="radio" id="year-4" name="year-of-study" value="fourth-year-or-higher">
+              <label for="year-4">Fourth Year or Higher</label>
+            </p>
+          </fieldset>
+
+          <p>
+            <label for="graduation-date">Expected Graduation Date</label><br>
+            <input type="date" id="graduation-date" name="graduation-date">
+          </p>
+
+          <p>
+            <label for="registered-credits">Current Registered Credit Hours</label><br>
+            <input type="number" id="registered-credits" name="registered-credits" min="0" step="0.5" placeholder="Example: 15">
+          </p>
+
+          <p>
+            <label for="target-course-grade">Default Target Course Grade (%)</label><br>
+            <input type="number" id="target-course-grade" name="target-course-grade" min="50" max="100" placeholder="Example: 85" required>
+          </p>
+
+          <p>
+            <label for="preferred-gpa-scale">Preferred GPA Scale</label><br>
+            <select id="preferred-gpa-scale" name="preferred-gpa-scale">
+              <option value="4.0">4.0 scale</option>
+              <option value="4.3">4.3 scale</option>
+              <option value="9.0">9.0 scale</option>
+            </select>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Account security and preferences</legend>
+
+          <p>
+            <label for="new-password">Create Password</label><br>
+            <input type="password" id="new-password" name="new-password" placeholder="Minimum 8 characters" autocomplete="new-password" minlength="8" required>
+          </p>
+
+          <p>
+            <label for="confirm-password">Confirm Password</label><br>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" autocomplete="new-password" minlength="8" required>
+          </p>
+
+          <fieldset>
+            <legend>Reminder Preferences</legend>
+            <p>
+              <input type="checkbox" id="deadline-reminders" name="reminder-preference" value="deadlines">
+              <label for="deadline-reminders">Assignment deadline reminders</label><br>
+              <input type="checkbox" id="grade-updates" name="reminder-preference" value="grades">
+              <label for="grade-updates">Grade update alerts</label><br>
+              <input type="checkbox" id="gpa-checkins" name="reminder-preference" value="gpa">
+              <label for="gpa-checkins">Monthly GPA check-ins</label>
+            </p>
+          </fieldset>
+
+          <p>
+            <label for="academic-goals">Academic Goals or Notes</label><br>
+            <textarea id="academic-goals" name="academic-goals" rows="5" cols="40" placeholder="Example: Keep all courses above 80% and review GPA every Friday."></textarea>
+          </p>
+        </fieldset>
+
+        <p>
+          <input type="checkbox" id="prototype-terms" name="prototype-terms" required>
+          <label for="prototype-terms">I understand this is a Phase 1 HTML prototype and the sign-in system is not yet functional.</label>
+        </p>
+
+        <p>
+          <button type="submit">Create Account</button>
+          <button type="reset">Reset Form</button>
+        </p>
+      </form>
+    </section>
+
+    <section aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">What This Profile Will Support</h2>
+      <article>
+        <h3>Planned account features</h3>
+        <ul>
+          <li>Store the student name, number, and university contact details.</li>
+          <li>Save default target grades so each course starts with a clear goal.</li>
+          <li>Connect profile settings to dashboard summaries and GPA estimates.</li>
+          <li>Support reminder preferences for assignments, exams, and GPA review habits.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Privacy note</h3>
+        <p>
+          GradeGuard is planned as a client-side application. In later phases, profile details may be
+          stored locally in the browser for convenience, but this Phase 1 version does not collect or
+          permanently save user information.
+        </p>
+      </article>
+    </section>
+
+    <aside aria-labelledby="related-tools-heading">
+      <h2 id="related-tools-heading">Related Tools</h2>
+      <ul>
+        <li><a href="courses.html">My Courses</a> - add or review your course list.</li>
+        <li><a href="course-detail.html">Course Detail</a> - manage assignments and use the What-If Calculator.</li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a> - estimate your overall GPA.</li>
+        <li><a href="faq.html">FAQ</a> - read answers to common profile, grades, and GPA questions.</li>
+        <li><a href="about.html">About / Help</a> - learn how GradeGuard works.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <hr>
+    <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
+    <p>Group 8: Jeffray Zhang, Arya Holmukhe, and Alia Hagi-Dhaffe</p>
+    <p>Professor May Haidar | May 17, 2026</p>
+  </footer>
+</body>
+</html>

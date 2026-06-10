@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read frequently asked questions about GradeGuard, including grade tracking, GPA calculations, profile settings, privacy, and troubleshooting.">
+  <title>GradeGuard | FAQ</title>
+</head>
+<body>
+  <header>
+    <h1>GradeGuard</h1>
+    <p>Take control of your grades, GPA, and academic goals.</p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="courses.html">My Courses</a></li>
+        <li><a href="course-detail.html">Course Detail</a></li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="faq.html" aria-current="page">FAQ</a></li>
+        <li><a href="about.html">About / Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <nav aria-label="Breadcrumb">
+      <p>
+        <a href="index.html">Dashboard</a> &gt; <strong>FAQ</strong>
+      </p>
+    </nav>
+
+    <section aria-labelledby="faq-intro-heading">
+      <h2 id="faq-intro-heading">Frequently Asked Questions</h2>
+      <p>
+        This help page answers common questions about how GradeGuard works, what the different tools
+        do, and what students can expect from the dashboard, course pages, and account features.
+      </p>
+      <p>
+        For Phase 1, this page presents the planned support content. Live search and interactive
+        filtering can be added with JavaScript in a later phase.
+      </p>
+
+      <form action="faq.html" method="get">
+        <p>
+          <label for="faq-search">Search the FAQ</label><br>
+          <input type="search" id="faq-search" name="faq-search" placeholder="Example: GPA, target grade, profile">
+        </p>
+
+        <p>
+          <label for="faq-topic">Filter by topic</label><br>
+          <select id="faq-topic" name="faq-topic">
+            <option value="all-topics">All Topics</option>
+            <option value="general">General</option>
+            <option value="grades">Grades</option>
+            <option value="gpa">GPA</option>
+            <option value="privacy">Privacy and Profile</option>
+            <option value="troubleshooting">Troubleshooting</option>
+          </select>
+        </p>
+
+        <p>
+          <button type="submit">Find Answers</button>
+        </p>
+      </form>
+    </section>
+
+    <nav aria-label="FAQ topic navigation">
+      <h2>Browse by Topic</h2>
+      <ul>
+        <li><a href="#general-questions">General Questions</a></li>
+        <li><a href="#grade-questions">Grade Tracking Questions</a></li>
+        <li><a href="#gpa-questions"><abbr title="Grade Point Average">GPA</abbr> Questions</a></li>
+        <li><a href="#privacy-questions">Profile and Privacy Questions</a></li>
+        <li><a href="#troubleshooting-questions">Troubleshooting Questions</a></li>
+      </ul>
+    </nav>
+
+    <section id="general-questions" aria-labelledby="general-heading">
+      <h2 id="general-heading">General Questions</h2>
+
+      <details open>
+        <summary>What is GradeGuard?</summary>
+        <p>
+          GradeGuard is a student-focused academic planning tool. It helps university students track
+          course grades, calculate weighted progress, test target-grade scenarios, and estimate their
+          overall GPA.
+        </p>
+      </details>
+
+      <details>
+        <summary>Who is this website for?</summary>
+        <p>
+          The main audience is undergraduate students who want a clearer view of their course standing,
+          assignment performance, and overall academic progress during the term.
+        </p>
+      </details>
+
+      <details>
+        <summary>What can I do on the site?</summary>
+        <p>
+          You can review your dashboard, add courses, enter assignment grades and weights, use the
+          What-If Calculator on a course page, estimate your GPA, and set up a university profile for
+          future sign-in features.
+        </p>
+      </details>
+    </section>
+
+    <section id="grade-questions" aria-labelledby="grade-heading">
+      <h2 id="grade-heading">Grade Tracking Questions</h2>
+
+      <details open>
+        <summary>How is my current course grade calculated?</summary>
+        <p>
+          GradeGuard uses a weighted course calculation. Each assignment score is multiplied by the
+          percentage weight it contributes to the course, and the weighted results are added together.
+        </p>
+      </details>
+
+      <details>
+        <summary>What does completed course weight mean?</summary>
+        <p>
+          Completed course weight is the total percentage of the course that has already been graded.
+          For example, if three assignments worth 15% each have been marked, then 45% of the course
+          weight has been completed.
+        </p>
+      </details>
+
+      <details>
+        <summary>Why do I see green, yellow, or red status labels?</summary>
+        <p>
+          These labels provide quick visual feedback about current performance. They are paired with
+          text so colour is not the only indicator.
+        </p>
+      </details>
+
+      <details>
+        <summary>How does the What-If Calculator help me?</summary>
+        <p>
+          The What-If Calculator compares your current weighted standing with your target final grade.
+          It then estimates the score you need on remaining assessments to reach that goal.
+        </p>
+      </details>
+
+      <article aria-labelledby="status-guide-heading">
+        <h3 id="status-guide-heading">Status Guide</h3>
+        <dl>
+          <dt>Green</dt>
+          <dd>80% and above - excellent progress.</dd>
+
+          <dt>Yellow</dt>
+          <dd>60% to 79% - passing, but there is room for improvement.</dd>
+
+          <dt>Red</dt>
+          <dd>Below 60% - immediate attention may be needed.</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section id="gpa-questions" aria-labelledby="gpa-heading">
+      <h2 id="gpa-heading"><abbr title="Grade Point Average">GPA</abbr> Questions</h2>
+
+      <details open>
+        <summary>How does GradeGuard convert percentages into GPA points?</summary>
+        <p>
+          The GPA Calculator uses a 4.0 scale shown on the GPA page. Each course percentage is matched
+          to a letter grade and GPA value, then used in the overall GPA calculation.
+        </p>
+      </details>
+
+      <details>
+        <summary>Why do credit hours matter in the GPA calculation?</summary>
+        <p>
+          GPA is weighted by credit hours. Courses worth more credits have a larger impact on your
+          final GPA than courses worth fewer credits.
+        </p>
+      </details>
+
+      <details>
+        <summary>What formula is used for overall GPA?</summary>
+        <p>
+          GradeGuard multiplies each course GPA value by its credit hours, adds those weighted points,
+          and then divides by the total number of credit hours.
+        </p>
+      </details>
+    </section>
+
+    <section id="privacy-questions" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Profile and Privacy Questions</h2>
+
+      <details open>
+        <summary>What information belongs on the profile page?</summary>
+        <p>
+          The profile page is designed for university-specific information such as your student name,
+          student number, program, year of study, preferred GPA scale, contact email, and academic
+          target settings.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do I need to use my university email?</summary>
+        <p>
+          The prototype encourages university email addresses because GradeGuard is intended for student
+          use, but the form is mainly present in Phase 1 to demonstrate the planned account structure.
+        </p>
+      </details>
+
+      <details>
+        <summary>Will my information be permanently saved right now?</summary>
+        <p>
+          No. This Phase 1 project focuses on HTML structure and content. Persistent storage and sign-in
+          logic are planned for a later phase using JavaScript.
+        </p>
+      </details>
+    </section>
+
+    <section id="troubleshooting-questions" aria-labelledby="troubleshooting-heading">
+      <h2 id="troubleshooting-heading">Troubleshooting Questions</h2>
+
+      <details open>
+        <summary>Why does a form not update the page automatically yet?</summary>
+        <p>
+          Phase 1 is focused on structure and content, not full interactivity. Dynamic course updates,
+          validation messages, and calculations will be connected with JavaScript in later phases.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if my assignment weights add up to more than 100%?</summary>
+        <p>
+          In the completed version, GradeGuard will warn users when the total weight exceeds 100%.
+          For now, use the course syllabus carefully and enter weights that match the official grading
+          breakdown.
+        </p>
+      </details>
+
+      <details>
+        <summary>What should I do if I cannot find a feature?</summary>
+        <p>
+          Start from the dashboard, then use the navigation menu to move to My Courses, Course Detail,
+          the GPA Calculator, Profile, or About / Help. The FAQ page also links to the main student
+          tools below.
+        </p>
+      </details>
+    </section>
+
+    <aside aria-labelledby="help-links-heading">
+      <h2 id="help-links-heading">Still Need Help?</h2>
+      <p>Use these pages to continue exploring the project:</p>
+      <ul>
+        <li><a href="about.html">About / Help</a> - read the full explanation of the project and grading logic.</li>
+        <li><a href="courses.html">My Courses</a> - review your course list and add a new course.</li>
+        <li><a href="course-detail.html">Course Detail</a> - manage assignments and test a target grade.</li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a> - see the conversion chart and weighted GPA example.</li>
+        <li><a href="profile.html">Profile</a> - manage sign-in and account setup details.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <hr>
+    <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
+    <p>Group 8: Jeffray Zhang, Arya Holmukhe, and Alia Hagi-Dhaffe</p>
+    <p>Professor May Haidar | May 17, 2026</p>
+  </footer>
+</body>
+</html>
