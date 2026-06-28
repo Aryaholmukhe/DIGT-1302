@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how GradeGuard converts percentages into GPA points, weights GPA by credit hours, and summarizes overall academic standing.">
+  <title>GradeGuard | GPA Overview</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="site-page">
+  <header class="page-header">
+    <h1>GPA Overview</h1>
+    <p>Understand how GradeGuard turns course percentages into a weighted overall GPA.</p>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="courses.html">My Courses</a></li>
+        <li><a href="course-detail.html">Course Details</a></li>
+        <li><a href="gpa-overview.html" aria-current="page">GPA Overview</a></li>
+        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About / Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <nav aria-label="Breadcrumb">
+      <p>
+        <a href="index.html">Dashboard</a> &gt; <strong>GPA Overview</strong>
+      </p>
+    </nav>
+
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading">How GradeGuard Interprets GPA</h2>
+      <p>
+        This page explains the GPA scale, weighted GPA logic, and the kind of academic summary that
+        appears on the dashboard. Use this page when you want to understand how GPA is calculated.
+      </p>
+      <p>
+        If you want to enter your own course grades and credit hours, go to the
+        <a href="gpa-calculator.html">GPA Calculator</a> page.
+      </p>
+    </section>
+
+    <section aria-labelledby="scale-heading">
+      <h2 id="scale-heading">Percentage to GPA Scale</h2>
+      <p>
+        GradeGuard uses a standard 4.0 GPA scale. The chart below shows an example conversion from
+        percentage grades to letter grades and GPA points.
+      </p>
+
+      <table>
+        <caption>GradeGuard GPA Conversion Chart</caption>
+        <thead>
+          <tr>
+            <th scope="col">Percentage Range</th>
+            <th scope="col">Letter Grade</th>
+            <th scope="col">GPA Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>90% - 100%</td>
+            <td>A+</td>
+            <td>4.0</td>
+          </tr>
+          <tr>
+            <td>80% - 89%</td>
+            <td>A</td>
+            <td>3.8</td>
+          </tr>
+          <tr>
+            <td>75% - 79%</td>
+            <td>B+</td>
+            <td>3.3</td>
+          </tr>
+          <tr>
+            <td>70% - 74%</td>
+            <td>B</td>
+            <td>3.0</td>
+          </tr>
+          <tr>
+            <td>65% - 69%</td>
+            <td>C+</td>
+            <td>2.3</td>
+          </tr>
+          <tr>
+            <td>60% - 64%</td>
+            <td>C</td>
+            <td>2.0</td>
+          </tr>
+          <tr>
+            <td>55% - 59%</td>
+            <td>D+</td>
+            <td>1.3</td>
+          </tr>
+          <tr>
+            <td>50% - 54%</td>
+            <td>D</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td>0% - 49%</td>
+            <td>F</td>
+            <td>0.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="sample-heading">
+      <h2 id="sample-heading">Sample GPA Breakdown</h2>
+      <p>
+        The table below shows how GradeGuard multiplies GPA points by credit hours to create a
+        weighted overall GPA.
+      </p>
+
+      <table>
+        <caption>Example Weighted GPA Calculation</caption>
+        <thead>
+          <tr>
+            <th scope="col">Course</th>
+            <th scope="col">Percentage</th>
+            <th scope="col">GPA Points</th>
+            <th scope="col">Credit Hours</th>
+            <th scope="col">Weighted Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DIGT 1302</td>
+            <td>86%</td>
+            <td>3.8</td>
+            <td>3</td>
+            <td>11.4</td>
+          </tr>
+          <tr>
+            <td>Introduction to Psychology</td>
+            <td>74%</td>
+            <td>3.0</td>
+            <td>3</td>
+            <td>9.0</td>
+          </tr>
+          <tr>
+            <td>Statistics</td>
+            <td>78%</td>
+            <td>3.3</td>
+            <td>4</td>
+            <td>13.2</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Totals</th>
+            <td>10</td>
+            <td>33.6</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p><strong>Overall GPA:</strong> 33.6 weighted points divided by 10 credit hours = 3.36 GPA</p>
+    </section>
+
+    <section aria-labelledby="formula-heading">
+      <h2 id="formula-heading">GPA Formula</h2>
+      <p><strong>Overall GPA = Total Weighted GPA Points ÷ Total Credit Hours</strong></p>
+      <p>
+        Weighted GPA points are found by multiplying each course's GPA value by its credit hours.
+        This means courses with more credits affect the final GPA more strongly.
+      </p>
+    </section>
+
+    <aside aria-labelledby="overview-tools-heading">
+      <h2 id="overview-tools-heading">GPA Tools</h2>
+      <ul>
+        <li><a href="gpa-calculator.html">GPA Calculator</a> - manually enter course percentages and credit hours.</li>
+        <li><a href="courses.html">My Courses</a> - review the courses that feed into your GPA planning.</li>
+        <li><a href="index.html">Dashboard</a> - return to your academic summary.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <hr>
+    <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
+    <p>Group 8: Jeffray Zhang, Arya Holmukhe, Alia Hagi-Dhaffe, and Steven Passynkov</p>
+    <p>Professor May Haidar | June 10, 2026</p>
+  </footer>
+</body>
+</html>

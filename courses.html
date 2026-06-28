@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="GradeGuard - Manage your courses, add assignments, and track your academic progress.">
   <title>GradeGuard | My Courses</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header>
+<body class="site-page">
+  <header class="page-header">
     <h1>GradeGuard</h1>
     <p>Take control of your grades, GPA, and academic goals.</p>
 
-    <nav aria-label="Main navigation">
+    <nav class="main-nav" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Dashboard</a></li>
         <li><a href="courses.html" aria-current="page">My Courses</a></li>
-        <li><a href="course-detail.html">Course Detail</a></li>
+        <li><a href="course-detail.html">Course Details</a></li>
+        <li><a href="gpa-overview.html">GPA Overview</a></li>
         <li><a href="gpa-calculator.html">GPA Calculator</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="faq.html">FAQ</a></li>
@@ -25,7 +27,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="page-content">
     <nav aria-label="Breadcrumb">
       <p>
         <a href="index.html">Dashboard</a> &gt; <strong>My Courses</strong>
@@ -36,7 +38,7 @@
       <h2 id="courses-heading">My Courses</h2>
       <p>
         Manage all your courses in one place. Add new courses, view your current grades, and click
-        on any course to see detailed assignment breakdowns and use the What-If Calculator.
+        on any course to open its matching course details section and What-If Calculator.
       </p>
     </section>
 
@@ -63,7 +65,7 @@
             <td>86%</td>
             <td>85%</td>
             <td>Green - 80% and above</td>
-            <td><a href="course-detail.html">View Details</a></td>
+            <td><a href="course-detail.html#digt-1302">View Details</a></td>
           </tr>
           <tr>
             <td>PSYC 1010</td>
@@ -72,7 +74,7 @@
             <td>74%</td>
             <td>80%</td>
             <td>Yellow - 60% to 79%</td>
-            <td><a href="course-detail.html">View Details</a></td>
+            <td><a href="course-detail.html#psyc-1010">View Details</a></td>
           </tr>
           <tr>
             <td>STAT 2020</td>
@@ -81,7 +83,7 @@
             <td>58%</td>
             <td>70%</td>
             <td>Red - below 60%</td>
-            <td><a href="course-detail.html">View Details</a></td>
+            <td><a href="course-detail.html#stat-2020">View Details</a></td>
           </tr>
         </tbody>
       </table>
@@ -89,7 +91,8 @@
       <p>
         <em>
           Note: The final version of GradeGuard will allow you to add and remove courses dynamically.
-          New courses will appear in this table after you submit the form below.
+          New courses will appear in this table after you submit the form below, and each View Details
+          link will open the matching course section on the Course Details page.
         </em>
       </p>
     </section>
@@ -98,8 +101,8 @@
       <h2 id="add-course-heading">Add a New Course</h2>
       <p>
         Enter your course information below. Once added, your course will appear in the course list
-        above and on your dashboard. You can then click "View Details" to add assignments and use the
-        What-If Calculator.
+        above and on your dashboard. You can then click "View Details" to open the matching course
+        section, add assignments, and use the What-If Calculator.
       </p>
 
       <form action="course-detail.html" method="get">
@@ -133,16 +136,16 @@
       <h2 id="tips-heading">Tips for Managing Your Courses</h2>
 
       <ul>
-        <li><strong>Add all your courses</strong> to get the most accurate GPA calculation on the GPA Calculator page.</li>
+        <li><strong>Add all your courses</strong> to get the most accurate GPA summary on the GPA Overview and GPA Calculator pages.</li>
         <li><strong>Set a target grade</strong> for each course so you can track whether you are on track throughout the term.</li>
-        <li><strong>Click "View Details"</strong> on any course to add individual assignments and see your weighted current grade.</li>
+        <li><strong>Click "View Details"</strong> on any course to jump to its matching course details section and review assignments.</li>
         <li><strong>Update regularly:</strong> Add new assignment scores as soon as you receive them to keep your course progress current.</li>
-        <li><strong>Use the What-If Calculator</strong> on the Course Detail page to plan for final exams and major projects.</li>
+        <li><strong>Use the What-If Calculator</strong> on the Course Details page to plan for final exams and major projects.</li>
       </ul>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <hr>
     <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
     <p>Group 8: Jeffray Zhang, Arya Holmukhe, Alia Hagi-Dhaffe, and Steven Passynkov</p>

@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn how GradeGuard helps students track grades, calculate GPA, and plan academic goals.">
   <title>About GradeGuard</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header>
+<body class="site-page">
+  <header class="page-header">
     <h1>About GradeGuard</h1>
     <p>A simple academic planning tool for university students.</p>
 
-    <nav aria-label="Main navigation">
+    <nav class="main-nav" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Dashboard</a></li>
         <li><a href="courses.html">My Courses</a></li>
-        <li><a href="course-detail.html">Course Detail</a></li>
+        <li><a href="course-detail.html">Course Details</a></li>
+        <li><a href="gpa-overview.html">GPA Overview</a></li>
         <li><a href="gpa-calculator.html">GPA Calculator</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="faq.html">FAQ</a></li>
@@ -25,7 +27,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="page-content">
     <section aria-labelledby="purpose-heading">
       <h2 id="purpose-heading">Purpose of the Website</h2>
       <p>
@@ -94,10 +96,11 @@
       </article>
 
       <article>
-        <h3>GPA Calculator</h3>
+        <h3>GPA Overview and Calculator</h3>
         <p>
-          The GPA Calculator converts course percentages into GPA points on a 4.0 scale and uses
-          credit hours to calculate a weighted overall GPA.
+          GradeGuard separates GPA help into two pages. The GPA Overview explains the 4.0 scale,
+          conversion chart, and weighted formula, while the GPA Calculator lets students enter their
+          own course percentages and credit hours.
         </p>
       </article>
     </section>
@@ -107,9 +110,9 @@
       <ol>
         <li>Start on the dashboard and review your current course summary.</li>
         <li>Add a new course by entering the course name and credit hours.</li>
-        <li>Open the course detail page to add assignments, scores, and weights.</li>
+        <li>Open the course details page to add assignments, scores, and weights.</li>
         <li>Use the What-If Calculator to test different final grade goals.</li>
-        <li>Visit the GPA Calculator page to estimate your overall GPA.</li>
+        <li>Visit the GPA Overview page first, then use the GPA Calculator page to estimate your overall GPA.</li>
       </ol>
     </section>
 
@@ -154,7 +157,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <hr>
     <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
     <p>Group 8: Jeffray Zhang, Arya Holmukhe, Alia Hagi-Dhaffe, and Steven Passynkov</p>

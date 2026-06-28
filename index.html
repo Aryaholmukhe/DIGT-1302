@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="GradeGuard helps university students track course grades, calculate GPA, and plan target grades.">
   <title>GradeGuard | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header>
+<body class="site-page">
+  <header class="page-header">
     <h1>GradeGuard</h1>
     <p>Take control of your grades, GPA, and academic goals.</p>
 
-    <nav aria-label="Main navigation">
+    <nav class="main-nav" aria-label="Main navigation">
       <ul>
         <li><a href="index.html" aria-current="page">Dashboard</a></li>
         <li><a href="courses.html">My Courses</a></li>
-        <li><a href="course-detail.html">Course Detail</a></li>
+        <li><a href="course-detail.html">Course Details</a></li>
+        <li><a href="gpa-overview.html">GPA Overview</a></li>
         <li><a href="gpa-calculator.html">GPA Calculator</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="faq.html">FAQ</a></li>
@@ -25,7 +27,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="page-content">
     <section aria-labelledby="welcome-heading">
       <h2 id="welcome-heading">Welcome to Your Academic Dashboard</h2>
       <p>
@@ -47,7 +49,7 @@
         <p><strong>Current GPA:</strong> 3.50 / 4.00</p>
         <p><strong>Status:</strong> Good Standing</p>
         <meter min="0" max="4" value="3.5">3.50 out of 4.00</meter>
-        <p><a href="gpa-calculator.html">View GPA breakdown</a></p>
+        <p><a href="gpa-overview.html">View GPA breakdown</a></p>
       </article>
 
       <article>
@@ -79,34 +81,34 @@
         <p><strong>Completed Weight:</strong> 45%</p>
         <progress max="100" value="45">45%</progress>
         <ul>
-          <li><a href="course-detail.html">View course details</a></li>
-          <li><a href="course-detail.html#what-if-calculator">Use What-If Calculator</a></li>
+          <li><a href="course-detail.html#digt-1302">View course details</a></li>
+          <li><a href="course-detail.html#digt-1302-what-if-calculator">Use What-If Calculator</a></li>
         </ul>
       </article>
 
       <article>
-        <h3>Sample Course - Introduction to Psychology</h3>
+        <h3>PSYC 1010 - Introduction to Psychology</h3>
         <p><strong>Credit Hours:</strong> 3</p>
         <p><strong>Current Grade:</strong> 74%</p>
         <p><strong>Status:</strong> Yellow - 60% to 79%</p>
         <p><strong>Completed Weight:</strong> 60%</p>
         <progress max="100" value="60">60%</progress>
         <ul>
-          <li><a href="course-detail.html">View course details</a></li>
-          <li><a href="course-detail.html#what-if-calculator">Use What-If Calculator</a></li>
+          <li><a href="course-detail.html#psyc-1010">View course details</a></li>
+          <li><a href="course-detail.html#psyc-1010-what-if-calculator">Use What-If Calculator</a></li>
         </ul>
       </article>
 
       <article>
-        <h3>Sample Course - Statistics</h3>
+        <h3>STAT 2020 - Statistics</h3>
         <p><strong>Credit Hours:</strong> 4</p>
         <p><strong>Current Grade:</strong> 58%</p>
         <p><strong>Status:</strong> Red - below 60%</p>
         <p><strong>Completed Weight:</strong> 40%</p>
         <progress max="100" value="40">40%</progress>
         <ul>
-          <li><a href="course-detail.html">View course details</a></li>
-          <li><a href="course-detail.html#what-if-calculator">Use What-If Calculator</a></li>
+          <li><a href="course-detail.html#stat-2020">View course details</a></li>
+          <li><a href="course-detail.html#stat-2020-what-if-calculator">Use What-If Calculator</a></li>
         </ul>
       </article>
     </section>
@@ -145,13 +147,16 @@
 
       <ul>
         <li>
-          <a href="course-detail.html">Manage a Course</a> - add assignments, enter scores, and view course progress.
+          <a href="course-detail.html#course-tools">Manage Course Details</a> - jump to the correct course section and review assignments.
         </li>
         <li>
-          <a href="course-detail.html#what-if-calculator">What-If Calculator</a> - find out what score you need on remaining assessments.
+          <a href="course-detail.html#course-tools">What-If Calculator</a> - choose a course and find out what score you need on remaining assessments.
         </li>
         <li>
-          <a href="gpa-calculator.html">GPA Calculator</a> - convert course percentages into GPA points and calculate your weighted GPA.
+          <a href="gpa-overview.html">GPA Overview</a> - review the conversion chart, weighted formula, and sample GPA breakdown.
+        </li>
+        <li>
+          <a href="gpa-calculator.html">GPA Calculator</a> - enter course percentages and credit hours manually.
         </li>
         <li>
           <a href="profile.html">University Profile</a> - manage your profile and sign-in information.
@@ -170,7 +175,7 @@
         <li>Open the course detail page and add each assignment, score, and weight.</li>
         <li>Check your current weighted grade and completed course weight.</li>
         <li>Use the What-If Calculator to choose a target final grade.</li>
-        <li>Review the GPA Calculator to see how your courses affect your overall GPA.</li>
+        <li>Review the GPA Overview, then use the GPA Calculator to see how your courses affect your overall GPA.</li>
       </ol>
     </section>
 
@@ -187,7 +192,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <hr>
     <p><strong>GradeGuard</strong> - DIGT 1302 Web Development Basics</p>
     <p>Group 8: Jeffray Zhang, Arya Holmukhe, Alia Hagi-Dhaffe, and Steven Passynkov</p>
