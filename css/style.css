@@ -1,26 +1,30 @@
 /* ==================================
-   GradeGuard Phase 2 Stylesheet
-   Mobile-first, responsive layout
+   GradeGuard Shared Base Stylesheet
+   Global theme, layout, forms, tables,
+   navigation, accessibility, and responsiveness
    ================================== */
 
 :root {
-  --bg: #eef4fb;
-  --bg-alt: #f8fbff;
+  --bg: #f8fafc;
+  --bg-alt: #eef3f8;
   --surface: #ffffff;
-  --surface-soft: #f4f8ff;
-  --surface-accent: #eaf2ff;
+  --surface-soft: #f4f7fb;
+  --surface-accent: #ebf3f4;
   --text: #1f2937;
-  --muted: #5f6b7a;
-  --heading: #11203d;
-  --primary: #2563eb;
-  --primary-dark: #173d8f;
-  --secondary: #0f766e;
-  --accent: #b45309;
-  --success: #15803d;
-  --warning: #b45309;
-  --danger: #b91c1c;
-  --focus: rgba(37, 99, 235, 0.22);
-  --border-color: #d7e0ea;
+  --muted: #6b7280;
+  --heading: #18324d;
+  --primary: #2a9d8f;
+  --primary-dark: #1f776d;
+  --secondary: #1e3a5f;
+  --accent: #facc15;
+  --accent-dark: #8a6a00;
+  --success: #22c55e;
+  --warning: #facc15;
+  --warning-dark: #8a6a00;
+  --danger: #ef4444;
+  --danger-dark: #991b1b;
+  --focus: rgba(42, 157, 143, 0.24);
+  --border-color: #d8e2ec;
   --shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
   --shadow-strong: 0 18px 38px rgba(15, 23, 42, 0.14);
   --radius: 1.1rem;
@@ -46,8 +50,8 @@ body.site-page {
   line-height: 1.6;
   color: var(--text);
   background:
-    radial-gradient(circle at top right, rgba(37, 99, 235, 0.11), transparent 24%),
-    linear-gradient(180deg, #edf4ff 0%, #f7fbff 22%, #eef4fb 100%);
+    radial-gradient(circle at top right, rgba(42, 157, 143, 0.1), transparent 24%),
+    linear-gradient(180deg, #f8fafc 0%, #f3f7fb 38%, #eef3f8 100%);
 }
 
 img {
@@ -170,7 +174,7 @@ address {
 }
 
 a {
-  color: var(--primary);
+  color: var(--secondary);
   text-decoration: none;
   text-underline-offset: 0.16em;
   transition: color 0.2s ease, opacity 0.2s ease, text-decoration-color 0.2s ease;
@@ -199,7 +203,7 @@ textarea {
   overflow: hidden;
   padding: 1.5rem 1rem 1rem;
   color: #ffffff;
-  background: linear-gradient(135deg, #102a56 0%, #194d87 52%, #0f766e 100%);
+  background: linear-gradient(135deg, #1e3a5f 0%, #26496f 50%, #2a9d8f 100%);
   box-shadow: var(--shadow-strong);
 }
 
@@ -373,30 +377,8 @@ details:hover {
   box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
 }
 
-#course-tools {
-  border-left: 5px solid var(--primary);
-}
-
-#digt-1302,
-#psyc-1010,
-#stat-2020 {
-  scroll-margin-top: 1.2rem;
-}
-
-#digt-1302 {
-  border-top: 5px solid var(--success);
-}
-
-#psyc-1010 {
-  border-top: 5px solid var(--warning);
-}
-
-#stat-2020 {
-  border-top: 5px solid var(--danger);
-}
-
 :target {
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18), var(--shadow);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.22), var(--shadow);
 }
 
 meter,
@@ -441,7 +423,7 @@ tbody tr:nth-child(even) {
 
 tfoot th,
 tfoot td {
-  background: #eef4ff;
+  background: var(--surface-accent);
   font-weight: 700;
 }
 
@@ -509,7 +491,7 @@ input[type="radio"] {
 input:hover,
 select:hover,
 textarea:hover {
-  border-color: #9eb5d4;
+  border-color: #9bc7c1;
 }
 
 input:focus-visible,
@@ -532,18 +514,18 @@ button {
   padding: 0.82rem 1.15rem;
   border: none;
   border-radius: 0.8rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.18);
+  box-shadow: 0 10px 22px rgba(42, 157, 143, 0.22);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 button:hover,
 button:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 14px 26px rgba(42, 157, 143, 0.24);
   filter: brightness(1.03);
 }
 
@@ -557,8 +539,8 @@ button[type="reset"] {
 }
 
 button[type="button"] {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-  box-shadow: 0 10px 22px rgba(185, 28, 28, 0.18);
+  background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+  box-shadow: 0 10px 22px rgba(239, 68, 68, 0.22);
 }
 
 td button {
@@ -581,7 +563,7 @@ details + details {
 
 details[open] {
   background: var(--surface-soft);
-  border-color: #bdd0f2;
+  border-color: #b7d7d2;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
 }
 
@@ -615,8 +597,8 @@ details ul {
 
 .site-footer {
   padding: 1.5rem 1rem 2rem;
-  color: #dbeafe;
-  background: #08192f;
+  color: #dce7f2;
+  background: #132a45;
 }
 
 .site-footer > hr,
@@ -633,11 +615,11 @@ details ul {
 
 .site-footer p {
   margin-top: 0.4rem;
-  color: #dbeafe;
+  color: #dce7f2;
 }
 
 .site-footer a {
-  color: #93c5fd;
+  color: #8de0d5;
 }
 
 .site-footer a:hover,

@@ -1,0 +1,73 @@
+/* Course details page styles */
+
+.page-course-detail #course-tools {
+  border-left: 5px solid var(--primary);
+  background: linear-gradient(180deg, rgba(30, 58, 95, 0.08) 0%, #ffffff 100%);
+}
+
+.page-course-detail #course-tools ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  list-style: none;
+  padding: 0;
+}
+
+.page-course-detail #course-tools li {
+  margin: 0;
+}
+
+.page-course-detail #course-tools a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.62rem 0.88rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: #ffffff;
+  font-weight: 700;
+}
+
+.page-course-detail #digt-1302,
+.page-course-detail #psyc-1010,
+.page-course-detail #stat-2020 {
+  scroll-margin-top: 1.2rem;
+}
+
+.page-course-detail #digt-1302 {
+  border-top: 5px solid var(--success);
+}
+
+.page-course-detail #psyc-1010 {
+  border-top: 5px solid var(--warning);
+}
+
+.page-course-detail #stat-2020 {
+  border-top: 5px solid var(--danger);
+}
+
+.page-course-detail .page-content > article {
+  gap: 1rem;
+}
+
+.page-course-detail .page-content > article > h2 {
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-course-detail .page-content > article > section {
+  align-content: start;
+}
+
+.page-course-detail .page-content > article > section:last-child {
+  background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, #ffffff 100%);
+}
+
+@media (min-width: 48rem) {
+  .page-course-detail .page-content > article {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-course-detail .page-content > article > h2 {
+    grid-column: 1 / -1;
+  }
+}

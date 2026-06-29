@@ -1,0 +1,59 @@
+/* Profile page styles */
+
+.page-profile section[aria-labelledby="profile-overview-heading"] {
+  align-items: start;
+}
+
+.page-profile section[aria-labelledby="profile-overview-heading"] > figure {
+  justify-self: center;
+}
+
+.page-profile section[aria-labelledby="saved-profile-heading"] > article {
+  border-left: 5px solid var(--primary);
+}
+
+.page-profile section[aria-labelledby="privacy-heading"] > article:nth-of-type(1) {
+  border-top: 4px solid var(--secondary);
+}
+
+.page-profile section[aria-labelledby="privacy-heading"] > article:nth-of-type(2) {
+  border-top: 4px solid var(--accent);
+}
+
+.page-profile aside ul {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.page-profile aside li {
+  margin: 0;
+  padding: 0.82rem 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+}
+
+.page-profile .site-footer p:last-child {
+  font-size: 0.94rem;
+}
+
+@media (min-width: 48rem) {
+  .page-profile section[aria-labelledby="profile-overview-heading"] {
+    grid-template-columns: minmax(14rem, 18rem) 1fr;
+  }
+
+  .page-profile section[aria-labelledby="profile-overview-heading"] > h2,
+  .page-profile section[aria-labelledby="profile-overview-heading"] > p {
+    grid-column: 1 / -1;
+  }
+
+  .page-profile section[aria-labelledby="profile-overview-heading"] > figure {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+
+  .page-profile section[aria-labelledby="profile-overview-heading"] > ul {
+    grid-column: 2;
+    align-self: center;
+  }
+}

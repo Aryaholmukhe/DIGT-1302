@@ -1,0 +1,56 @@
+/* FAQ page styles */
+
+.page-faq nav[aria-label="FAQ topic navigation"] ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  list-style: none;
+  padding: 0;
+}
+
+.page-faq nav[aria-label="FAQ topic navigation"] li {
+  margin: 0;
+}
+
+.page-faq nav[aria-label="FAQ topic navigation"] a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.62rem 0.88rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: #ffffff;
+  font-weight: 700;
+}
+
+.page-faq #general-questions details {
+  border-left: 4px solid var(--primary);
+}
+
+.page-faq #grade-questions details {
+  border-left: 4px solid var(--success);
+}
+
+.page-faq #gpa-questions details {
+  border-left: 4px solid var(--secondary);
+}
+
+.page-faq #privacy-questions details {
+  border-left: 4px solid var(--accent);
+}
+
+.page-faq #troubleshooting-questions details {
+  border-left: 4px solid var(--danger);
+}
+
+.page-faq aside ul {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.page-faq aside li {
+  margin: 0;
+  padding: 0.82rem 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+}

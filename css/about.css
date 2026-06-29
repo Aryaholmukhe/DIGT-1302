@@ -1,0 +1,41 @@
+/* About page styles */
+
+.page-about section[aria-labelledby="team-heading"] {
+  background: linear-gradient(180deg, rgba(30, 58, 95, 0.08) 0%, #ffffff 100%);
+}
+
+.page-about section[aria-labelledby="team-heading"] ul {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.page-about section[aria-labelledby="team-heading"] li {
+  margin: 0;
+  padding: 0.82rem 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+}
+
+.page-about section[aria-labelledby="features-heading"] > article {
+  border-top: 4px solid var(--primary);
+}
+
+.page-about section[aria-labelledby="accessibility-heading"] ul {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.page-about section[aria-labelledby="accessibility-heading"] li {
+  margin: 0;
+  padding: 0.78rem 0.9rem;
+  border-left: 4px solid var(--secondary);
+  background: var(--surface-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+@media (min-width: 48rem) {
+  .page-about section[aria-labelledby="features-heading"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

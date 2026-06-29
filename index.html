@@ -6,8 +6,9 @@
   <meta name="description" content="GradeGuard helps university students track course grades, calculate GPA, and plan target grades.">
   <title>GradeGuard | Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
-<body class="site-page">
+<body class="site-page page-index">
   <header class="page-header">
     <h1>GradeGuard</h1>
     <p>Take control of your grades, GPA, and academic goals.</p>
@@ -28,96 +29,112 @@
   </header>
 
   <main class="page-content">
-    <section aria-labelledby="welcome-heading">
+    <section class="dashboard-hero" aria-labelledby="welcome-heading">
       <h2 id="welcome-heading">Welcome to Your Academic Dashboard</h2>
       <p>
-        GradeGuard is a student-focused grade tracking tool that helps you calculate your current
-        course standing, plan future assessment scores, and understand your overall GPA.
+        Track grades, GPA, course progress, and target scores from one place. GradeGuard helps you
+        quickly spot strong courses, identify classes that need attention, and jump to the right
+        planning tool.
       </p>
-      <p>
-        Add your courses, enter assignment grades and weights, then use GradeGuard to see where you
-        stand and what you need to reach your target final grade.
-      </p>
-      <p><a href="about.html">Learn how GradeGuard works</a></p>
+
+      <ul class="hero-metrics">
+        <li>
+          <span class="metric-label">Current GPA</span>
+          <strong class="metric-value">3.50 / 4.00</strong>
+        </li>
+        <li>
+          <span class="metric-label">Active Courses</span>
+          <strong class="metric-value">3</strong>
+        </li>
+        <li>
+          <span class="metric-label">Needs Attention</span>
+          <strong class="metric-value">1 course</strong>
+        </li>
+      </ul>
+
+      <nav class="hero-actions" aria-label="Dashboard quick actions">
+        <a class="button-link" href="courses.html">Open My Courses</a>
+        <a class="button-link button-link--secondary" href="gpa-calculator.html">Use GPA Calculator</a>
+        <a class="text-link" href="about.html">Learn how GradeGuard works</a>
+      </nav>
     </section>
 
-    <section aria-labelledby="summary-heading">
+    <section class="dashboard-summary" aria-labelledby="summary-heading">
       <h2 id="summary-heading">Academic Summary</h2>
 
-      <article>
-        <h3>Overall GPA</h3>
-        <p><strong>Current GPA:</strong> 3.50 / 4.00</p>
-        <p><strong>Status:</strong> Good Standing</p>
+      <article class="summary-card summary-card--gpa">
+        <p class="summary-kicker">Overall GPA</p>
+        <h3>Current academic standing</h3>
+        <p class="summary-value">3.50 <span>/ 4.00</span></p>
+        <p class="summary-status summary-status--good">Good Standing</p>
         <meter min="0" max="4" value="3.5">3.50 out of 4.00</meter>
         <p><a href="gpa-overview.html">View GPA breakdown</a></p>
       </article>
 
-      <article>
-        <h3>Course Status Legend</h3>
-        <ul>
-          <li><strong>Green:</strong> 80% and above - excellent progress</li>
-          <li><strong>Yellow:</strong> 60% to 79% - passing, but keep improving</li>
-          <li><strong>Red:</strong> Below 60% - needs attention</li>
+      <article class="summary-card summary-card--legend">
+        <h3>Performance Signals</h3>
+        <ul class="status-legend">
+          <li><span class="status-key status-key--good">Green</span> 80% and above - excellent progress</li>
+          <li><span class="status-key status-key--warning">Yellow</span> 60% to 79% - passing, but keep improving</li>
+          <li><span class="status-key status-key--danger">Red</span> Below 60% - needs attention</li>
         </ul>
-        <p>
-          Note: The final version of GradeGuard will use colour-coded cards and text labels together
-          so users can understand their progress clearly and accessibly.
-        </p>
+        <p><strong>At-risk courses:</strong> 1 course currently needs attention.</p>
       </article>
     </section>
 
-    <section aria-labelledby="courses-heading">
+    <section class="dashboard-courses" aria-labelledby="courses-heading">
       <h2 id="courses-heading">Your Courses</h2>
       <p>
-        This dashboard gives a quick overview of each course, including the current calculated grade,
-        completed course weight, credit hours, and academic status.
+        Review the courses that are on track, the ones that need steady improvement, and the class
+        that currently needs the most attention.
       </p>
 
-      <article>
+      <article class="course-card course-card--good">
         <h3>DIGT 1302 - Web Development Basics</h3>
         <p><strong>Credit Hours:</strong> 3</p>
-        <p><strong>Current Grade:</strong> 86%</p>
-        <p><strong>Status:</strong> Green - 80% and above</p>
+        <p><strong>Current Grade:</strong> <span class="course-grade">86%</span></p>
+        <p class="course-status course-status--good"><strong>Status:</strong> Green - 80% and above</p>
         <p><strong>Completed Weight:</strong> 45%</p>
         <progress max="100" value="45">45%</progress>
-        <ul>
+        <ul class="course-actions">
           <li><a href="course-detail.html#digt-1302">View course details</a></li>
           <li><a href="course-detail.html#digt-1302-what-if-calculator">Use What-If Calculator</a></li>
         </ul>
       </article>
 
-      <article>
+      <article class="course-card course-card--warning">
         <h3>PSYC 1010 - Introduction to Psychology</h3>
         <p><strong>Credit Hours:</strong> 3</p>
-        <p><strong>Current Grade:</strong> 74%</p>
-        <p><strong>Status:</strong> Yellow - 60% to 79%</p>
+        <p><strong>Current Grade:</strong> <span class="course-grade">74%</span></p>
+        <p class="course-status course-status--warning"><strong>Status:</strong> Yellow - 60% to 79%</p>
         <p><strong>Completed Weight:</strong> 60%</p>
         <progress max="100" value="60">60%</progress>
-        <ul>
+        <ul class="course-actions">
           <li><a href="course-detail.html#psyc-1010">View course details</a></li>
           <li><a href="course-detail.html#psyc-1010-what-if-calculator">Use What-If Calculator</a></li>
         </ul>
       </article>
 
-      <article>
+      <article class="course-card course-card--danger">
         <h3>STAT 2020 - Statistics</h3>
         <p><strong>Credit Hours:</strong> 4</p>
-        <p><strong>Current Grade:</strong> 58%</p>
-        <p><strong>Status:</strong> Red - below 60%</p>
+        <p><strong>Current Grade:</strong> <span class="course-grade">58%</span></p>
+        <p class="course-status course-status--danger"><strong>Status:</strong> Red - below 60%</p>
         <p><strong>Completed Weight:</strong> 40%</p>
+        <p class="course-alert">Priority review recommended before the next major assessment.</p>
         <progress max="100" value="40">40%</progress>
-        <ul>
+        <ul class="course-actions">
           <li><a href="course-detail.html#stat-2020">View course details</a></li>
           <li><a href="course-detail.html#stat-2020-what-if-calculator">Use What-If Calculator</a></li>
         </ul>
       </article>
     </section>
 
-    <section aria-labelledby="add-course-heading">
+    <section class="dashboard-form" aria-labelledby="add-course-heading">
       <h2 id="add-course-heading">Add New Course</h2>
       <p>
-        Use this form to add a new course to your dashboard. In the complete version, the course card
-        will appear on this page after submission.
+        Add a course to your dashboard quickly. In the complete version, submitting this form will
+        create a new course card automatically.
       </p>
 
       <form action="course-detail.html" method="get">
@@ -142,53 +159,63 @@
       </form>
     </section>
 
-    <section aria-labelledby="quick-tools-heading">
+    <section class="dashboard-tools" aria-labelledby="quick-tools-heading">
       <h2 id="quick-tools-heading">Quick Tools</h2>
 
-      <ul>
+      <ul class="quick-tool-list">
         <li>
-          <a href="course-detail.html#course-tools">Manage Course Details</a> - jump to the correct course section and review assignments.
+          <a href="course-detail.html#course-tools">Manage Course Details</a>
+          <span>Open the right course section and review assignments.</span>
         </li>
         <li>
-          <a href="course-detail.html#course-tools">What-If Calculator</a> - choose a course and find out what score you need on remaining assessments.
+          <a href="course-detail.html#course-tools">What-If Calculator</a>
+          <span>Choose a course and estimate the score needed on remaining work.</span>
         </li>
         <li>
-          <a href="gpa-overview.html">GPA Overview</a> - review the conversion chart, weighted formula, and sample GPA breakdown.
+          <a href="gpa-overview.html">GPA Overview</a>
+          <span>Review the GPA scale, weighted formula, and sample breakdown.</span>
         </li>
         <li>
-          <a href="gpa-calculator.html">GPA Calculator</a> - enter course percentages and credit hours manually.
+          <a href="gpa-calculator.html">GPA Calculator</a>
+          <span>Enter course percentages and credit hours manually.</span>
         </li>
         <li>
-          <a href="profile.html">University Profile</a> - manage your profile and sign-in information.
+          <a href="profile.html">University Profile</a>
+          <span>Update sign-in details and academic preferences.</span>
         </li>
         <li>
-          <a href="faq.html">FAQ</a> - read common questions about grade tracking, GPA, and account setup.
+          <a href="faq.html">FAQ</a>
+          <span>Find quick answers about grades, GPA, and account setup.</span>
         </li>
       </ul>
     </section>
 
-    <section aria-labelledby="how-to-heading">
+    <section class="dashboard-collapsible" aria-labelledby="how-to-heading">
       <h2 id="how-to-heading">How to Use GradeGuard</h2>
-
-      <ol>
-        <li>Add a course by entering the course name and credit hours.</li>
-        <li>Open the course detail page and add each assignment, score, and weight.</li>
-        <li>Check your current weighted grade and completed course weight.</li>
-        <li>Use the What-If Calculator to choose a target final grade.</li>
-        <li>Review the GPA Overview, then use the GPA Calculator to see how your courses affect your overall GPA.</li>
-      </ol>
+      <details>
+        <summary>View quick setup steps</summary>
+        <ol class="compact-list">
+          <li>Add a course by entering the course name and credit hours.</li>
+          <li>Open the course detail page and add each assignment, score, and weight.</li>
+          <li>Check your current weighted grade and completed course weight.</li>
+          <li>Use the What-If Calculator to choose a target final grade.</li>
+          <li>Review the GPA Overview, then use the GPA Calculator to see how your courses affect your overall GPA.</li>
+        </ol>
+      </details>
     </section>
 
-    <section aria-labelledby="feedback-heading">
+    <section class="dashboard-collapsible" aria-labelledby="feedback-heading">
       <h2 id="feedback-heading">Feedback You Will See</h2>
-
-      <ul>
-        <li><strong>Form validation:</strong> warnings for missing, negative, or invalid grade values.</li>
-        <li><strong>Performance indicators:</strong> green, yellow, and red grade status labels.</li>
-        <li><strong>Progress bars:</strong> visual summaries of completed course weight.</li>
-        <li><strong>Dynamic grade messages:</strong> clear explanations of what score is needed to reach a target grade.</li>
-        <li><strong>Confirmation messages:</strong> updates after courses or assignments are added or removed.</li>
-      </ul>
+      <details>
+        <summary>View planned feedback and alerts</summary>
+        <ul class="compact-list">
+          <li><strong>Form validation:</strong> warnings for missing, negative, or invalid grade values.</li>
+          <li><strong>Performance indicators:</strong> green, yellow, and red grade status labels.</li>
+          <li><strong>Progress bars:</strong> visual summaries of completed course weight.</li>
+          <li><strong>Dynamic grade messages:</strong> clear explanations of what score is needed to reach a target grade.</li>
+          <li><strong>Confirmation messages:</strong> updates after courses or assignments are added or removed.</li>
+        </ul>
+      </details>
     </section>
   </main>
 

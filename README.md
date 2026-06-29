@@ -39,8 +39,9 @@ GradeGuard is a client-side web application designed to help university students
 - No external frameworks or libraries
 
 ## Phase 2 Styling and Responsive Design Improvements
-- Added one shared stylesheet: `css/style.css`, linked across all HTML pages
-- Created a consistent visual identity with a blue-teal color scheme, card-based layout, and styled typography
+- Added one shared base stylesheet: `css/style.css`, plus separate page-level stylesheets for each HTML page inside the `css/` folder
+- Created a consistent academic dashboard visual identity with a navy, teal, and neutral color palette, card-based layout, and styled typography
+- Strengthened visual hierarchy by emphasizing dashboard GPA information, course status cards, forms, and quick tools
 - Styled navigation, forms, buttons, tables, figures, and footer content for a unified look and feel
 - Used responsive layout techniques including flexbox, CSS grid, relative units, and media queries
 - Improved usability with hover states, keyboard focus states, readable spacing, and mobile-friendly layout adjustments
