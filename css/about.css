@@ -1,7 +1,7 @@
 /* About page styles */
 
 .page-about section[aria-labelledby="team-heading"] {
-  background: linear-gradient(180deg, rgba(30, 58, 95, 0.08) 0%, #ffffff 100%);
+  background: linear-gradient(180deg, rgba(30, 58, 95, 0.08) 0%, var(--surface) 100%);
 }
 
 .page-about section[aria-labelledby="team-heading"] ul {
@@ -14,7 +14,7 @@
   padding: 0.82rem 0.95rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  background: #ffffff;
+  background: var(--surface);
 }
 
 .page-about section[aria-labelledby="features-heading"] > article {

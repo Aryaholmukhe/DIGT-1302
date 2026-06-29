@@ -5,22 +5,11 @@
 }
 
 .page-gpa-calculator section[aria-labelledby="calculator-heading"] {
-  background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, #ffffff 100%);
+  background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, var(--surface) 100%);
 }
 
 .page-gpa-calculator section[aria-labelledby="result-heading"] > article {
   border-left: 4px solid var(--secondary);
 }
 
-.page-gpa-calculator aside ul {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.page-gpa-calculator aside li {
-  margin: 0;
-  padding: 0.82rem 0.95rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  background: var(--surface-soft);
-}
+/* aside card lists are styled globally in style.css (.page-content aside) */

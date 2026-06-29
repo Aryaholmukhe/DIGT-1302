@@ -17,19 +17,22 @@
   background: #e7f2f1;
 }
 
-.page-courses tbody tr:nth-child(1) td:nth-child(6) {
+/* Status colour follows the data (data-status), not the row position, so
+   re-sorting or adding courses can't desync the colour from the meaning. */
+.page-courses td[data-status] {
+  font-weight: 700;
+}
+
+.page-courses td[data-status="good"] {
   color: var(--success);
-  font-weight: 700;
 }
 
-.page-courses tbody tr:nth-child(2) td:nth-child(6) {
+.page-courses td[data-status="warning"] {
   color: var(--warning-dark);
-  font-weight: 700;
 }
 
-.page-courses tbody tr:nth-child(3) td:nth-child(6) {
+.page-courses td[data-status="danger"] {
   color: var(--danger);
-  font-weight: 700;
 }
 
 .page-courses section[aria-labelledby="tips-heading"] ul {

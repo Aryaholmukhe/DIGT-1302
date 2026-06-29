@@ -20,18 +20,7 @@
   border-top: 4px solid var(--accent);
 }
 
-.page-profile aside ul {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.page-profile aside li {
-  margin: 0;
-  padding: 0.82rem 0.95rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  background: var(--surface-soft);
-}
+/* aside card lists are styled globally in style.css (.page-content aside) */
 
 .page-profile .site-footer p:last-child {
   font-size: 0.94rem;

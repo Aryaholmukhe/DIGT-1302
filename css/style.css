@@ -25,11 +25,72 @@
   --danger-dark: #991b1b;
   --focus: rgba(42, 157, 143, 0.24);
   --border-color: #d8e2ec;
+  --border-input: #c8d4e2;
+  --border-input-hover: #9bc7c1;
+  --table-border: #e3e9f1;
+  --row-stripe: #f8fbff;
+  --placeholder: #7b8696;
+  --footer-bg: #132a45;
+  --footer-text: #dce7f2;
+  --footer-border: rgba(191, 219, 254, 0.18);
+  --footer-link: #8de0d5;
+  --shadow-sm: 0 8px 18px rgba(15, 23, 42, 0.05);
   --shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
   --shadow-strong: 0 18px 38px rgba(15, 23, 42, 0.14);
+  --shadow-card-hover: 0 14px 28px rgba(15, 23, 42, 0.1);
   --radius: 1.1rem;
   --radius-sm: 0.85rem;
+  /* Spacing scale — use these instead of ad-hoc rem values going forward. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
   --max-width: 1180px;
+}
+
+/* Dark theme: only the design tokens change — the rest of the sheet
+   already consumes them, so the whole UI follows automatically.
+   Header/hero/footer chrome stays on its own fixed dark gradients. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --bg-alt: #111c30;
+    --surface: #1e293b;
+    --surface-soft: #233146;
+    --surface-accent: #1f3a3a;
+    --text: #e2e8f0;
+    --muted: #a8b3c4;
+    --heading: #f1f5f9;
+    --border-color: #334155;
+    --border-input: #3b4a61;
+    --border-input-hover: #4b8a82;
+    --table-border: #2c3a52;
+    --row-stripe: #233146;
+    --placeholder: #8b97a8;
+    --focus: rgba(42, 157, 143, 0.4);
+    --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.35);
+    --shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+    --shadow-strong: 0 18px 38px rgba(0, 0, 0, 0.5);
+    --shadow-card-hover: 0 14px 28px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Respect users who ask the OS to minimise motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 *,
@@ -40,6 +101,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Stop iOS/Safari from auto-inflating text in landscape. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body.site-page {
@@ -49,9 +113,12 @@ body.site-page {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text);
+  /* Long unbroken strings (emails, URLs) wrap instead of forcing
+     horizontal scroll on narrow phones. */
+  overflow-wrap: break-word;
   background:
     radial-gradient(circle at top right, rgba(42, 157, 143, 0.1), transparent 24%),
-    linear-gradient(180deg, #f8fafc 0%, #f3f7fb 38%, #eef3f8 100%);
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
 }
 
 img {
@@ -60,7 +127,7 @@ img {
   height: auto;
 }
 
-img[src*="profile"] {
+.profile-photo {
   border-radius: 50%;
 }
 
@@ -326,7 +393,7 @@ textarea {
   padding: 0.55rem 0.8rem;
   border: 1px solid var(--border-color);
   border-radius: 999px;
-  background: #ffffff;
+  background: var(--surface);
   font-weight: 600;
 }
 
@@ -361,10 +428,10 @@ aside > article {
   display: grid;
   gap: 0.9rem;
   padding: 1rem;
-  background: linear-gradient(180deg, var(--surface-soft) 0%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--surface-soft) 0%, var(--surface) 100%);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -374,7 +441,22 @@ section > form:hover,
 article > section:hover,
 details:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Reusable "card list" used by every sidebar aside. Previously this exact
+   block was copy-pasted into five page stylesheets (DRY). */
+.page-content aside ul {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.page-content aside li {
+  margin: 0;
+  padding: 0.82rem 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
 }
 
 :target {
@@ -393,7 +475,7 @@ table {
   width: 100%;
   min-width: 38rem;
   border-collapse: collapse;
-  background: #ffffff;
+  background: var(--surface);
 }
 
 caption {
@@ -414,11 +496,11 @@ td {
   padding: 0.82rem 1rem;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid #e3e9f1;
+  border-bottom: 1px solid var(--table-border);
 }
 
 tbody tr:nth-child(even) {
-  background: #f8fbff;
+  background: var(--row-stripe);
 }
 
 tfoot th,
@@ -443,7 +525,7 @@ fieldset {
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  background: #ffffff;
+  background: var(--surface);
   min-inline-size: 0;
 }
 
@@ -467,9 +549,9 @@ select,
 textarea {
   width: 100%;
   padding: 0.82rem 0.9rem;
-  border: 1px solid #c8d4e2;
+  border: 1px solid var(--border-input);
   border-radius: 0.8rem;
-  background: #ffffff;
+  background: var(--surface);
   color: var(--text);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
@@ -491,7 +573,7 @@ input[type="radio"] {
 input:hover,
 select:hover,
 textarea:hover {
-  border-color: #9bc7c1;
+  border-color: var(--border-input-hover);
 }
 
 input:focus-visible,
@@ -504,7 +586,7 @@ button:focus-visible {
 }
 
 ::placeholder {
-  color: #7b8696;
+  color: var(--placeholder);
 }
 
 button {
@@ -538,7 +620,10 @@ button[type="reset"] {
   box-shadow: 0 10px 22px rgba(51, 65, 85, 0.18);
 }
 
-button[type="button"] {
+/* Destructive actions opt in explicitly via .button-danger rather than
+   inheriting danger styling from the type="button" attribute (behaviour,
+   not intent). */
+.button-danger {
   background: linear-gradient(135deg, var(--danger), var(--danger-dark));
   box-shadow: 0 10px 22px rgba(239, 68, 68, 0.22);
 }
@@ -552,8 +637,8 @@ details {
   padding: 0.95rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  background: #ffffff;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
@@ -597,8 +682,8 @@ details ul {
 
 .site-footer {
   padding: 1.5rem 1rem 2rem;
-  color: #dce7f2;
-  background: #132a45;
+  color: var(--footer-text);
+  background: var(--footer-bg);
 }
 
 .site-footer > hr,
@@ -609,17 +694,17 @@ details ul {
 
 .site-footer > hr {
   border: none;
-  border-top: 1px solid rgba(191, 219, 254, 0.18);
+  border-top: 1px solid var(--footer-border);
   margin-bottom: 1rem;
 }
 
 .site-footer p {
   margin-top: 0.4rem;
-  color: #dce7f2;
+  color: var(--footer-text);
 }
 
 .site-footer a {
-  color: #8de0d5;
+  color: var(--footer-link);
 }
 
 .site-footer a:hover,
