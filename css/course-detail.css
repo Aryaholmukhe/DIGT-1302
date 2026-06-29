@@ -58,6 +58,12 @@
   align-content: start;
 }
 
+/* Assignment tables need ~38rem; their section card must scroll the table
+   internally instead of letting it bleed past the card padding/border. */
+.page-course-detail .page-content > article > section[aria-labelledby$="assignments-heading"] {
+  overflow-x: auto;
+}
+
 .page-course-detail .page-content > article > section:last-child {
   background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, var(--surface) 100%);
 }
@@ -67,7 +73,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .page-course-detail .page-content > article > h2 {
+  .page-course-detail .page-content > article > h2,
+  .page-course-detail .page-content > article > section[aria-labelledby$="assignments-heading"] {
     grid-column: 1 / -1;
   }
 }
