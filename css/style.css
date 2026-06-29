@@ -50,33 +50,6 @@
   --max-width: 1180px;
 }
 
-/* Dark theme: only the design tokens change — the rest of the sheet
-   already consumes them, so the whole UI follows automatically.
-   Header/hero/footer chrome stays on its own fixed dark gradients. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f172a;
-    --bg-alt: #111c30;
-    --surface: #1e293b;
-    --surface-soft: #233146;
-    --surface-accent: #1f3a3a;
-    --text: #e2e8f0;
-    --muted: #a8b3c4;
-    --heading: #f1f5f9;
-    --border-color: #334155;
-    --border-input: #3b4a61;
-    --border-input-hover: #4b8a82;
-    --table-border: #2c3a52;
-    --row-stripe: #233146;
-    --placeholder: #8b97a8;
-    --focus: rgba(42, 157, 143, 0.4);
-    --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.35);
-    --shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
-    --shadow-strong: 0 18px 38px rgba(0, 0, 0, 0.5);
-    --shadow-card-hover: 0 14px 28px rgba(0, 0, 0, 0.5);
-  }
-}
-
 /* Respect users who ask the OS to minimise motion. */
 @media (prefers-reduced-motion: reduce) {
   html {
