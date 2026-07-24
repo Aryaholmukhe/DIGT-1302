@@ -42,7 +42,7 @@
       <h2 id="profile-overview-heading">University Profile and Sign-In</h2>
       <p>
         This page is where students manage the personal and academic information that GradeGuard
-        will use to personalize course tracking, target grades, and future sign-in features.
+        uses to personalize course tracking, target grades, and sign-in on this device.
       </p>
       <figure>
         <img class="profile-photo" src="images/profile.png" alt="Grayscale avatar icon representing a student user profile in GradeGuard." width="220" height="220">
@@ -52,43 +52,18 @@
         <li>Sign in to review saved courses and academic goals.</li>
         <li>Create an account using your university information.</li>
         <li>Set profile preferences such as study level, target grade, and reminder options.</li>
-        <li>Review the kind of data GradeGuard plans to store in later phases.</li>
+        <li>Review the data GradeGuard stores in your browser.</li>
       </ul>
     </section>
 
     <section aria-labelledby="saved-profile-heading">
-      <p class="kicker">Sample data</p>
-      <h2 id="saved-profile-heading">Sample Saved Profile</h2>
-      <article class="edge-left-thick">
+      <p class="kicker">Saved data</p>
+      <h2 id="saved-profile-heading">Your Saved Profile</h2>
+      <article class="edge-left-thick" id="saved-profile-card">
         <h3>Student Summary</h3>
-        <dl>
-          <dt>Student Name</dt>
-          <dd>Sample Student</dd>
-
-          <dt>Student Number</dt>
-          <dd>221000000</dd>
-
-          <dt>University Email</dt>
-          <dd>sample@my.yorku.ca</dd>
-
-          <dt>Program</dt>
-          <dd>Digital Media</dd>
-
-          <dt>Year of Study</dt>
-          <dd>Second Year</dd>
-
-          <dt>Preferred <abbr title="Grade Point Average">GPA</abbr> Scale</dt>
-          <dd>4.0 scale</dd>
-
-          <dt>Default Target Course Grade</dt>
-          <dd>85%</dd>
-
-          <dt>Academic Standing Goal</dt>
-          <dd>Maintain strong progress across all registered courses</dd>
-        </dl>
         <p>
-          <strong>Prototype note:</strong> This sample profile is static content for Phase 1. In a later
-          phase, GradeGuard will use JavaScript to save and display user-entered profile data.
+          Create an account below (or sign in) and the profile saved in this browser
+          appears here automatically.
         </p>
       </article>
     </section>
@@ -254,8 +229,8 @@
         </fieldset>
 
         <p>
-          <input type="checkbox" id="prototype-terms" name="prototype-terms" required>
-          <label for="prototype-terms">I understand this is a course-project prototype and my information is checked in the browser only, not sent to a server.</label>
+          <input type="checkbox" id="storage-consent" name="storage-consent" required>
+          <label for="storage-consent">I agree that my profile is saved only in this browser using localStorage and is never sent to a server.</label>
         </p>
 
         <p>
@@ -269,21 +244,21 @@
       <p class="kicker">Privacy</p>
       <h2 id="privacy-heading">What This Profile Will Support</h2>
       <article>
-        <h3>Planned account features</h3>
+        <h3>Account features</h3>
         <ul>
-          <li>Store the student name, number, and university contact details.</li>
-          <li>Save default target grades so each course starts with a clear goal.</li>
-          <li>Connect profile settings to dashboard summaries and GPA estimates.</li>
-          <li>Support reminder preferences for assignments, exams, and GPA review habits.</li>
+          <li>Stores the student name, number, and university contact details.</li>
+          <li>Saves a default target grade so each course starts with a clear goal.</li>
+          <li>Connects your sign-in to a personalized dashboard greeting.</li>
+          <li>Keeps reminder preferences for assignments, exams, and GPA review habits.</li>
         </ul>
       </article>
 
       <article>
         <h3>Privacy note</h3>
         <p>
-          GradeGuard is planned as a client-side application. In later phases, profile details may be
-          stored locally in the browser for convenience, but this Phase 1 version does not collect or
-          permanently save user information.
+          GradeGuard is a fully client-side application. Your profile and courses are stored locally
+          in this browser with localStorage, your password is kept only as a one-way hash, and
+          nothing is ever sent to a server. Clearing your browser data removes everything.
         </p>
       </article>
     </section>

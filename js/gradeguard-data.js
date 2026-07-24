@@ -56,7 +56,7 @@
     }
   };
 
-  /* Sample data shown on first visit (matches the Phase 1 content). */
+  /* Sample courses shown on first visit, before any are saved. */
   const SEED_COURSES = [
     {
       code: "DIGT 1302",
@@ -294,6 +294,103 @@
     return cloneSeed();
   }
 
+  /* ---------- Account and sign-in session ---------- */
+
+  const ACCOUNT_KEY = "gradeguard.account.v1";
+  const SESSION_KEY = "gradeguard.session.v1";
+
+  /* Non-cryptographic fallback used only when Web Crypto is unavailable. */
+  function fallbackHash(text) {
+    let hash = 5381;
+    for (let i = 0; i < text.length; i += 1) {
+      hash = ((hash << 5) + hash + text.charCodeAt(i)) >>> 0;
+    }
+    return "djb2-" + hash.toString(16);
+  }
+
+  /* One-way hash so the real password is never stored anywhere.
+     Uses the browser's built-in Web Crypto SHA-256. */
+  function hashPassword(password) {
+    const subtle = window.crypto && window.crypto.subtle;
+    if (!subtle || typeof window.TextEncoder === "undefined") {
+      return Promise.resolve(fallbackHash(password));
+    }
+    const bytes = new TextEncoder().encode(password);
+    return subtle.digest("SHA-256", bytes).then(function (digest) {
+      return Array.from(new Uint8Array(digest)).map(function (byte) {
+        return byte.toString(16).padStart(2, "0");
+      }).join("");
+    });
+  }
+
+  function loadAccount() {
+    try {
+      const raw = window.localStorage.getItem(ACCOUNT_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed.email === "string" &&
+            typeof parsed.passwordHash === "string" && typeof parsed.firstName === "string") {
+          return parsed;
+        }
+      }
+    } catch (error) {
+      /* Storage unavailable or corrupt - treat as no account. */
+    }
+    return null;
+  }
+
+  function saveAccount(account) {
+    try {
+      window.localStorage.setItem(ACCOUNT_KEY, JSON.stringify(account));
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  /* "Keep me signed in" decides where the session lives: localStorage
+     survives closing the browser, sessionStorage ends with the tab. */
+  function saveSession(email, remember) {
+    const value = JSON.stringify({ email: email, since: new Date().toISOString() });
+    try {
+      if (remember) {
+        window.localStorage.setItem(SESSION_KEY, value);
+        window.sessionStorage.removeItem(SESSION_KEY);
+      } else {
+        window.sessionStorage.setItem(SESSION_KEY, value);
+        window.localStorage.removeItem(SESSION_KEY);
+      }
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function loadSession() {
+    try {
+      const raw = window.sessionStorage.getItem(SESSION_KEY) ||
+        window.localStorage.getItem(SESSION_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed.email === "string") {
+          return parsed;
+        }
+      }
+    } catch (error) {
+      /* No usable session. */
+    }
+    return null;
+  }
+
+  function clearSession() {
+    try {
+      window.sessionStorage.removeItem(SESSION_KEY);
+      window.localStorage.removeItem(SESSION_KEY);
+    } catch (error) {
+      /* Nothing to clear. */
+    }
+  }
+
   /* Public API for js/script.js (and for tests). */
   window.GradeGuardData = {
     GPA_SCALE: GPA_SCALE,
@@ -312,6 +409,12 @@
     maxPossibleFinal: maxPossibleFinal,
     loadCourses: loadCourses,
     saveCourses: saveCourses,
-    resetCourses: resetCourses
+    resetCourses: resetCourses,
+    hashPassword: hashPassword,
+    loadAccount: loadAccount,
+    saveAccount: saveAccount,
+    saveSession: saveSession,
+    loadSession: loadSession,
+    clearSession: clearSession
   };
 })();

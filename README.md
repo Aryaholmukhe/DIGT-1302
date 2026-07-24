@@ -13,7 +13,7 @@ Phase 3: Dynamic Behavior and Functionality
 - Steven Passynkov, 221955471, stevenp7@my.yorku.ca
 
 ## Project Description
-GradeGuard is a client-side web application designed to help university students take control of their academic performance. Students can add courses and assignments, see their weighted course grades and status update instantly, simulate "what-if" scenarios to determine the scores needed on future assessments, and calculate their weighted GPA. All data is validated in the browser and saved locally with localStorage — no server required.
+GradeGuard is a client-side web application designed to help university students take control of their academic performance. Students can add courses and assignments, see their weighted course grades and status update instantly, simulate "what-if" scenarios to determine the scores needed on future assessments, calculate their weighted GPA, and create an on-device account to sign in and personalize their dashboard. All data is validated in the browser and saved locally with localStorage — passwords are stored only as one-way hashes, and no server is required.
 
 ## GitHub Repository Link
 [GradeGuard Repository](https://github.com/Aryaholmukhe/DIGT-1302)
@@ -29,7 +29,7 @@ GradeGuard is a client-side web application designed to help university students
 5. `course-detail.html` — Collapsible per-course panels with assignment tables, add/remove assignments, and a live What-If Calculator
 6. `gpa-overview.html` — GPA conversion chart with an interactive percentage lookup
 7. `gpa-calculator.html` — Manual GPA calculator with validation, extra course rows, and a generated results table
-8. `profile.html` — Sign-in and create-account forms with comprehensive validation
+8. `profile.html` — Working on-device account system: create an account, sign in and out, and review your saved profile
 9. `faq.html` — FAQ with live search, topic filtering, and expand/collapse controls
 
 ## Phase 1 — Content Structure
@@ -58,6 +58,7 @@ Highlights:
 - **Event handling:** `submit`, `click` (with event delegation for dynamically created Remove buttons), `input` (live search, live What-If recalculation, character counter), `change` (topic filter, GPA scale, conditional phone requirement), `keydown` (Escape clears search), `mouseover`/`mouseout` (GPA chart row preview), and `DOMContentLoaded`
 - **Form validation:** every form validates on the client with inline error messages next to each field, `aria-invalid` styling, focus on the first invalid field, and a form-level summary; rules include required fields, email format, 9-digit student number, phone digits, password strength and confirmation match, number ranges, future-date checks, minimum message length, and duplicate-course detection
 - **Interactive functionality:** add/remove courses and assignments with instant grade/status/GPA recalculation, live What-If Calculator per course, GPA calculator with a generated results table and academic standing, FAQ live search + filtering, GPA chart lookup with row highlighting, and course search
+- **Working sign-in:** creating an account saves a profile to localStorage with the password stored only as a SHA-256 hash (Web Crypto API); signing in verifies credentials with clear per-field errors, "keep me signed in" chooses between a persistent (localStorage) and tab-only (sessionStorage) session, the dashboard greets the signed-in student by name, and signing out takes one click
 - **User feedback:** success/error/warning/info message boxes, confirmation summaries after sign-up and contact submissions, live counters and status lines (`role="status"`/`role="alert"` for screen readers), and graceful handling of invalid input, duplicate data, empty states, and blocked localStorage
 - **Optional features used:** localStorage persistence, data loaded from a local JSON-style structure, smooth scrolling that respects `prefers-reduced-motion`
 

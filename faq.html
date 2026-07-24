@@ -109,8 +109,8 @@
         <summary>What can I do on the site?</summary>
         <p>
           You can review your dashboard, add courses, enter assignment grades and weights, use the
-          What-If Calculator on a course page, estimate your GPA, and set up a university profile for
-          future sign-in features.
+          What-If Calculator on a course page, estimate your GPA, and create a university profile
+          that lets you sign in on this device.
         </p>
       </details>
     </section>
@@ -212,16 +212,17 @@
       <details class="edge-left">
         <summary>Do I need to use my university email?</summary>
         <p>
-          The prototype encourages university email addresses because GradeGuard is intended for student
-          use, but the form is mainly present in Phase 1 to demonstrate the planned account structure.
+          GradeGuard encourages university email addresses because it is designed for student use,
+          but any valid email address can be used to create your on-device account.
         </p>
       </details>
 
       <details class="edge-left">
         <summary>Will my information be permanently saved right now?</summary>
         <p>
-          No. This Phase 1 project focuses on HTML structure and content. Persistent storage and sign-in
-          logic are planned for a later phase using JavaScript.
+          Yes. Your courses, assignments, and profile are saved in this browser using localStorage,
+          and your password is stored only as a one-way hash. Nothing is sent to a server, and
+          clearing your browser data removes it all.
         </p>
       </details>
     </section>
@@ -231,19 +232,20 @@
       <h2 id="troubleshooting-heading">Troubleshooting Questions</h2>
 
       <details class="edge-left" open>
-        <summary>Why does a form not update the page automatically yet?</summary>
+        <summary>Why did my saved courses or profile disappear?</summary>
         <p>
-          Phase 1 is focused on structure and content, not full interactivity. Dynamic course updates,
-          validation messages, and calculations will be connected with JavaScript in later phases.
+          GradeGuard stores everything in this browser's localStorage. Clearing browsing data, using
+          private browsing, or switching to another browser or device starts you fresh. Use the
+          Restore sample data button on My Courses to bring back the example courses.
         </p>
       </details>
 
       <details class="edge-left">
         <summary>What if my assignment weights add up to more than 100%?</summary>
         <p>
-          In the completed version, GradeGuard will warn users when the total weight exceeds 100%.
-          For now, use the course syllabus carefully and enter weights that match the official grading
-          breakdown.
+          GradeGuard will not let a new assignment push a course past 100%. The form shows an error
+          that tells you exactly how much weight remains ungraded, so your course breakdown always
+          matches the official syllabus.
         </p>
       </details>
 

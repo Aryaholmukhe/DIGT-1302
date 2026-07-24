@@ -494,6 +494,15 @@
 
   function initDashboardPage(courses) {
     renderDashboard(courses);
+
+    /* Greet a signed-in student by name. */
+    const account = Data.loadAccount();
+    const session = Data.loadSession();
+    const welcome = document.getElementById("welcome-heading");
+    if (welcome && account && session &&
+        session.email.toLowerCase() === account.email.toLowerCase()) {
+      welcome.textContent = "Welcome back, " + account.firstName + "!";
+    }
     const form = document.getElementById("dashboard-add-course-form");
     if (form) {
       attachLiveErrorClearing(form);
@@ -1403,9 +1412,95 @@
     return list;
   }
 
+  /* Fill the "Your Saved Profile" card from the stored account,
+     or explain how to create one. */
+  function renderSavedProfile(account) {
+    const card = document.getElementById("saved-profile-card");
+    if (!card) {
+      return;
+    }
+    card.textContent = "";
+    const heading = document.createElement("h3");
+    heading.textContent = "Student Summary";
+    card.appendChild(heading);
+    if (!account) {
+      const empty = document.createElement("p");
+      empty.textContent = "No profile is saved in this browser yet. " +
+        "Create your account below and your details will appear here.";
+      card.appendChild(empty);
+      return;
+    }
+    card.appendChild(buildSummaryList([
+      ["Student Name", account.firstName + " " + account.lastName],
+      ["Student Number", account.studentNumber],
+      ["University Email", account.email],
+      ["Phone", account.phone],
+      ["Program", account.programLabel],
+      ["Year of Study", account.yearLabel],
+      ["Expected Graduation", account.graduationDate],
+      ["Registered Credit Hours", account.registeredCredits],
+      ["Default Target Course Grade", account.targetGrade + "%"],
+      ["Preferred GPA Scale", account.gpaScale + " scale"],
+      ["Reminders", account.reminders && account.reminders.length > 0 ? account.reminders.join(", ") : ""],
+      ["Academic Goals", account.goals]
+    ]));
+    const note = document.createElement("p");
+    note.textContent = "Stored in this browser only. Your password is kept as a " +
+      "one-way SHA-256 hash, never as plain text.";
+    card.appendChild(note);
+  }
+
+  /* Toggle between the sign-in form and the signed-in status line,
+     based on whether a valid session exists. */
+  function refreshSessionUi() {
+    const signInForm = document.getElementById("sign-in-form");
+    const statusBox = document.getElementById("session-status");
+    const signOutBlock = document.getElementById("sign-out-block");
+    if (!signInForm || !statusBox || !signOutBlock) {
+      return;
+    }
+    const account = Data.loadAccount();
+    const session = Data.loadSession();
+    const signedIn = Boolean(account && session &&
+      session.email.toLowerCase() === account.email.toLowerCase());
+    signInForm.hidden = signedIn;
+    statusBox.hidden = !signedIn;
+    signOutBlock.hidden = !signedIn;
+    if (signedIn) {
+      statusBox.textContent = "Signed in as " + account.firstName + " " +
+        account.lastName + " (" + account.email + ") on this device.";
+    }
+  }
+
   function initProfilePage() {
+    renderSavedProfile(Data.loadAccount());
+
     const signInForm = document.getElementById("sign-in-form");
     if (signInForm) {
+      /* Signed-in status line and sign-out control (JavaScript-only UI). */
+      const statusBox = document.createElement("p");
+      statusBox.id = "session-status";
+      statusBox.className = "feedback feedback--success";
+      statusBox.setAttribute("role", "status");
+      statusBox.hidden = true;
+      const signOutBlock = document.createElement("p");
+      signOutBlock.id = "sign-out-block";
+      signOutBlock.hidden = true;
+      const signOutButton = document.createElement("button");
+      signOutButton.type = "button";
+      signOutButton.className = "button-quiet";
+      signOutButton.textContent = "Sign out";
+      signOutBlock.appendChild(signOutButton);
+      signInForm.insertAdjacentElement("beforebegin", statusBox);
+      statusBox.insertAdjacentElement("afterend", signOutBlock);
+
+      signOutButton.addEventListener("click", function () {
+        Data.clearSession();
+        refreshSessionUi();
+        showFeedback(signInForm, "info",
+          "Signed out. Your profile is still saved on this device.");
+      });
+
       attachLiveErrorClearing(signInForm);
       signInForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -1425,12 +1520,40 @@
         if (!valid) {
           return;
         }
-        const email = document.getElementById("signin-email").value.trim();
-        signInForm.reset();
-        showFeedback(signInForm, "success",
-          "Welcome back! You are signed in as " + email +
-          " for this session (prototype - nothing is sent to a server).");
+        const account = Data.loadAccount();
+        const emailInput = document.getElementById("signin-email");
+        const passwordInput = document.getElementById("signin-password");
+        if (!account) {
+          showFeedback(signInForm, "error",
+            "No account exists on this device yet. Create your account below - it only takes a minute.");
+          return;
+        }
+        if (emailInput.value.trim().toLowerCase() !== account.email.toLowerCase()) {
+          setFieldError(emailInput, "No account with this email exists on this device.");
+          showFeedback(signInForm, "error", "Please fix the highlighted fields and try again.");
+          emailInput.focus();
+          return;
+        }
+        /* Compare one-way hashes - the stored password is never readable. */
+        Data.hashPassword(passwordInput.value).then(function (hash) {
+          if (hash !== account.passwordHash) {
+            setFieldError(passwordInput, "Incorrect password. Please try again.");
+            showFeedback(signInForm, "error", "Please fix the highlighted fields and try again.");
+            passwordInput.focus();
+            return;
+          }
+          const remember = document.getElementById("remember-me").checked;
+          Data.saveSession(account.email, remember);
+          signInForm.reset();
+          clearFeedback(signInForm);
+          refreshSessionUi();
+          statusBox.textContent = "Welcome back, " + account.firstName +
+            "! You are signed in as " + account.email +
+            (remember ? " and will stay signed in on this device." : " for this browser tab.");
+        });
       });
+
+      refreshSessionUi();
     }
 
     const accountForm = document.getElementById("create-account-form");
@@ -1491,7 +1614,7 @@
           required: "Re-enter your password.",
           match: ["new-password", "Passwords do not match."]
         },
-        { id: "prototype-terms", required: "Please confirm you understand this is a prototype." }
+        { id: "storage-consent", required: "Please confirm how your profile is stored." }
       ]);
       if (!valid) {
         return;
@@ -1499,37 +1622,70 @@
 
       const programSelect = document.getElementById("program-name");
       const yearChoice = accountForm.querySelector("input[name='year-of-study']:checked");
-      const pairs = [
-        ["Name", document.getElementById("first-name").value.trim() + " " +
-          document.getElementById("last-name").value.trim()],
-        ["Student Number", document.getElementById("student-number").value.trim()],
-        ["University Email", document.getElementById("account-email").value.trim()],
-        ["Program", programSelect.selectedOptions[0].textContent],
-        ["Year of Study", yearChoice ? qs("label[for='" + yearChoice.id + "']").textContent : ""],
-        ["Default Target Grade", document.getElementById("target-course-grade").value + "%"],
-        ["Preferred GPA Scale", document.getElementById("preferred-gpa-scale").value + " scale"]
-      ];
+      const account = {
+        firstName: document.getElementById("first-name").value.trim(),
+        lastName: document.getElementById("last-name").value.trim(),
+        studentNumber: document.getElementById("student-number").value.trim(),
+        email: document.getElementById("account-email").value.trim(),
+        phone: document.getElementById("phone-number").value.trim(),
+        programLabel: programSelect.selectedOptions[0].textContent,
+        yearLabel: yearChoice ? qs("label[for='" + yearChoice.id + "']").textContent : "",
+        graduationDate: document.getElementById("graduation-date").value,
+        registeredCredits: document.getElementById("registered-credits").value,
+        targetGrade: document.getElementById("target-course-grade").value,
+        gpaScale: document.getElementById("preferred-gpa-scale").value,
+        reminders: qsa("input[name='reminder-preference']:checked", accountForm).map(function (box) {
+          return qs("label[for='" + box.id + "']").textContent;
+        }),
+        goals: document.getElementById("academic-goals").value.trim(),
+        createdAt: new Date().toISOString()
+      };
 
-      const section = accountForm.closest("section");
-      let summary = document.getElementById("account-summary");
-      if (summary) {
-        summary.remove();
-      }
-      summary = document.createElement("article");
-      summary.id = "account-summary";
-      const heading = document.createElement("h3");
-      heading.textContent = "Account created (prototype)";
-      summary.appendChild(heading);
-      summary.appendChild(buildSummaryList(pairs));
-      const note = document.createElement("p");
-      note.textContent = "These details were validated in your browser only - nothing was sent to a server.";
-      summary.appendChild(note);
-      section.appendChild(summary);
+      /* Hash the password, then persist the account and sign the user in. */
+      Data.hashPassword(document.getElementById("new-password").value).then(function (hash) {
+        account.passwordHash = hash;
+        const existed = Data.loadAccount() !== null;
+        const saved = Data.saveAccount(account);
+        Data.saveSession(account.email, true);
+        renderSavedProfile(account);
+        refreshSessionUi();
 
-      accountForm.reset();
-      showFeedback(accountForm, "success",
-        "Account created for " + pairs[0][1] + "! Review your saved details below.");
-      scrollToElement(summary);
+        const section = accountForm.closest("section");
+        let summary = document.getElementById("account-summary");
+        if (summary) {
+          summary.remove();
+        }
+        summary = document.createElement("article");
+        summary.id = "account-summary";
+        const heading = document.createElement("h3");
+        heading.textContent = "Profile saved to this browser";
+        summary.appendChild(heading);
+        summary.appendChild(buildSummaryList([
+          ["Name", account.firstName + " " + account.lastName],
+          ["Student Number", account.studentNumber],
+          ["University Email", account.email],
+          ["Program", account.programLabel],
+          ["Year of Study", account.yearLabel],
+          ["Default Target Grade", account.targetGrade + "%"],
+          ["Preferred GPA Scale", account.gpaScale + " scale"]
+        ]));
+        const note = document.createElement("p");
+        note.textContent = "You are signed in automatically. The password is stored only as a one-way hash.";
+        summary.appendChild(note);
+        section.appendChild(summary);
+
+        accountForm.reset();
+        let message = "Account created for " + account.firstName + " " + account.lastName +
+          " - you are now signed in on this device.";
+        if (existed) {
+          message += " Your previous saved profile was replaced.";
+        }
+        if (!saved) {
+          message += " Note: your browser blocked local storage, so the profile lasts for this visit only.";
+        }
+        showFeedback(accountForm, "success", message);
+        scrollToElement(summary);
+      });
     });
   }
 
@@ -1654,7 +1810,7 @@
       summary = document.createElement("article");
       summary.id = "message-summary";
       const heading = document.createElement("h3");
-      heading.textContent = "Message recorded (prototype)";
+      heading.textContent = "Message recorded";
       summary.appendChild(heading);
       summary.appendChild(buildSummaryList(pairs));
       section.appendChild(summary);
@@ -1662,8 +1818,8 @@
       form.reset();
       updateCounter();
       showFeedback(form, "success",
-        "Thanks, " + name + "! Your message was checked and recorded. " +
-        "This prototype does not send messages to a server yet.");
+        "Thanks, " + name + "! Your message passed every check and was recorded in this browser. " +
+        "This course project does not send messages to a server.");
       scrollToElement(summary);
     });
 
