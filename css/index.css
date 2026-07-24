@@ -3,7 +3,12 @@
 .page-index .dashboard-hero {
   display: grid;
   gap: 1.25rem;
-  background: var(--gradient-brand);
+  /* Shares the header's drafting-grid texture over the brand gradient. */
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    var(--gradient-brand);
+  background-size: 42px 42px, 42px 42px, auto;
   border: none;
   box-shadow: var(--shadow);
 }
@@ -16,7 +21,7 @@
 }
 
 .page-index .dashboard-hero .kicker {
-  color: #8de0d5;
+  color: var(--lime);
 }
 
 .page-index .dashboard-hero h2 {

@@ -15,43 +15,47 @@
 }
 
 :root {
-  --bg: #f8fafc;
-  --bg-alt: #eef3f8;
-  --surface: #ffffff;
-  --surface-soft: #f4f7fb;
-  --surface-accent: #ebf3f4;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --heading: #18324d;
-  --primary: #2a9d8f;
-  --primary-dark: #1f776d;
-  --secondary: #1e3a5f;
+  /* "Paper and ink" palette: warm paper surfaces, near-black green ink,
+     one deep-green brand accent plus a lime highlight. Green/yellow/red
+     remain reserved for grade-status meaning. */
+  --bg: #f5f3ec;
+  --bg-alt: #efece1;
+  --surface: #fffefa;
+  --surface-soft: #f4f2e9;
+  --surface-accent: #e4efe6;
+  --text: #2b3a33;
+  --muted: #5f6f66;
+  --heading: #18251f;
+  --primary: #146b52;
+  --primary-dark: #0d4f3d;
+  --secondary: #1d3d33;
+  --lime: #d8ed83;
   --success: #22c55e;
   --warning: #facc15;
   --warning-dark: #8a6a00;
   --danger: #ef4444;
   --danger-dark: #991b1b;
-  --focus: rgba(42, 157, 143, 0.24);
-  --border-color: #d8e2ec;
-  --border-input: #c8d4e2;
-  --border-input-hover: #9bc7c1;
-  --table-border: #e3e9f1;
-  --row-stripe: #f8fbff;
-  --placeholder: #7b8696;
-  --footer-bg: #132a45;
-  --footer-text: #dce7f2;
-  --footer-border: rgba(191, 219, 254, 0.18);
-  --footer-link: #8de0d5;
+  --focus: rgba(20, 107, 82, 0.26);
+  --border-color: #dbd6c6;
+  --border-input: #c8c2ad;
+  --border-input-hover: #9dbfa9;
+  --table-border: #e5e1d2;
+  --row-stripe: #faf8f0;
+  --placeholder: #8b948b;
+  --footer-bg: #14231d;
+  --footer-text: #e4ece5;
+  --footer-border: rgba(255, 255, 255, 0.14);
+  --footer-link: var(--lime);
   /* Elevation: exactly two levels so depth stays meaningful.
      Cards rest on --shadow-sm; only raised/interactive moments use --shadow. */
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05), 0 4px 12px rgba(15, 23, 42, 0.05);
-  --shadow: 0 2px 4px rgba(15, 23, 42, 0.06), 0 12px 24px rgba(15, 23, 42, 0.09);
+  --shadow-sm: 0 1px 2px rgba(24, 37, 31, 0.05), 0 3px 10px rgba(24, 37, 31, 0.04);
+  --shadow: 0 2px 4px rgba(24, 37, 31, 0.06), 0 12px 24px rgba(24, 37, 31, 0.1);
   /* Shape: two radii (cards and controls). Pill shape (999px) is reserved
      for the header navigation and small status badges only. */
-  --radius: 0.75rem;
-  --radius-sm: 0.5rem;
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
   /* The one brand gradient, shared by the page header and dashboard hero. */
-  --gradient-brand: linear-gradient(135deg, #1e3a5f 0%, #26496f 45%, #2a9d8f 100%);
+  --gradient-brand: linear-gradient(135deg, #0f3a2e 0%, #146b52 60%, #1c7a5e 100%);
   --font-size-sm: 0.875rem;
   /* Tiny uppercase monospace labels ("kickers") use the system mono stack. */
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
@@ -193,7 +197,7 @@ p {
 }
 
 ::selection {
-  background: rgba(42, 157, 143, 0.25);
+  background: var(--lime);
   color: var(--heading);
 }
 
@@ -288,7 +292,12 @@ textarea {
   overflow: hidden;
   padding: var(--space-5) var(--space-4) var(--space-4);
   color: #ffffff;
-  background: var(--gradient-brand);
+  /* Faint drafting-grid texture layered over the brand gradient. */
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    var(--gradient-brand);
+  background-size: 42px 42px, 42px 42px, auto;
   box-shadow: var(--shadow);
 }
 
@@ -306,9 +315,12 @@ textarea {
 }
 
 .page-header > p {
-  margin-top: 0.55rem;
+  margin-top: var(--space-2);
   max-width: 56rem;
   color: rgba(255, 255, 255, 0.92);
+  /* One serif, editorial moment - the site tagline. */
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
 }
 
 .main-nav {
@@ -469,7 +481,7 @@ aside > article,
 }
 
 :target {
-  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.22), var(--shadow);
+  box-shadow: 0 0 0 3px rgba(20, 107, 82, 0.22), var(--shadow);
 }
 
 meter,
@@ -658,7 +670,7 @@ button + button {
 }
 
 button[type="reset"] {
-  background: #475569;
+  background: #55625a;
 }
 
 /* Destructive actions opt in explicitly via .button-danger rather than
@@ -688,7 +700,7 @@ details + details {
 
 details[open] {
   background: var(--surface-soft);
-  border-color: #b7d7d2;
+  border-color: #b8d2c1;
 }
 
 summary {
@@ -988,8 +1000,8 @@ details[open].edge-left-thick {
 }
 
 .feedback--info {
-  background: rgba(30, 58, 95, 0.08);
-  border-color: rgba(30, 58, 95, 0.25);
+  background: rgba(24, 37, 31, 0.06);
+  border-color: rgba(24, 37, 31, 0.22);
   color: var(--secondary);
 }
 
@@ -1051,7 +1063,7 @@ textarea[aria-invalid="true"] {
 /* Highlighted row in the GPA conversion chart lookup. */
 tr.chart-highlight,
 tbody tr.chart-highlight:nth-child(even) {
-  background: rgba(42, 157, 143, 0.16);
+  background: rgba(20, 107, 82, 0.13);
 }
 
 tr.chart-highlight td {
