@@ -15,6 +15,14 @@
   color: #ffffff;
 }
 
+.page-index .dashboard-hero .kicker {
+  color: #8de0d5;
+}
+
+.page-index .dashboard-hero h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
 .page-index .dashboard-hero p {
   max-width: 65ch;
 }
@@ -289,9 +297,10 @@
   gap: 1rem;
 }
 
+/* Hairline divider rows - space and lines group; boxes only contain. */
 .page-index .quick-tool-list {
   display: grid;
-  gap: var(--space-3);
+  gap: 0 var(--space-6);
   list-style: none;
   padding: 0;
 }
@@ -300,9 +309,12 @@
   display: grid;
   gap: var(--space-1);
   margin: 0;
-  padding: var(--space-4);
-  border-radius: var(--radius-sm);
-  background: var(--surface-soft);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-index .quick-tool-list li + li {
+  margin-top: 0;
 }
 
 .page-index .quick-tool-list a {
@@ -319,14 +331,21 @@
 
 .page-index .compact-list {
   display: grid;
-  gap: var(--space-3);
+  gap: 0;
 }
 
 .page-index .compact-list li {
   margin: 0;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-index .compact-list li + li {
+  margin-top: 0;
+}
+
+.page-index .compact-list li:last-child {
+  border-bottom: none;
 }
 
 @media (min-width: 48rem) {

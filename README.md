@@ -45,6 +45,7 @@ GradeGuard is a client-side web application designed to help university students
 - Collapsible course panels on the Course Details page so only the selected course shows its details
 - Hover states, keyboard focus states, and reduced-motion support
 - Refined during Phase 3 into a token-driven theme: one brand accent (teal) with green/yellow/red reserved for grade status, a single brand gradient, a 0.25rem spacing grid (`--space-*`), a six-step type scale, two elevation levels, and two corner radii applied consistently across every page
+- Editorial polish: self-hosted Manrope variable font, display-scale headings with tight letter-spacing, small uppercase monospace "kicker" labels introducing each section, a ~70-character reading measure on paragraphs, generous section whitespace, and hairline divider lists in place of boxed chips
 
 ## Phase 3 — JavaScript Functionality
 JavaScript lives in the `js/` folder, split into two files with a clear purpose:
@@ -72,5 +73,6 @@ Highlights:
 ## Credits
 - All main written content: Work by the GradeGuard team (Group 8)
 - Profile image on `profile.html`: [iStock user profile avatar illustration](https://www.istockphoto.com/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-gm2151669184-572745045?searchscope=image%2Cfilm)
+- [Manrope](https://fonts.google.com/specimen/Manrope) typeface by Mikhail Sharanda, self-hosted in `fonts/` under the [SIL Open Font License 1.1](https://openfontlicense.org/)
 - Built for DIGT 1302 — Web Development Basics at York University, Summer 2026
 - Professor May Haidar

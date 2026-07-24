@@ -2,14 +2,23 @@
 
 .page-about section[aria-labelledby="team-heading"] ul {
   display: grid;
-  gap: var(--space-3);
+  gap: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 .page-about section[aria-labelledby="team-heading"] li {
   margin: 0;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-sm);
-  background: var(--surface-soft);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-about section[aria-labelledby="team-heading"] li + li {
+  margin-top: 0;
+}
+
+.page-about section[aria-labelledby="team-heading"] li:last-child {
+  border-bottom: none;
 }
 
 .page-about section[aria-labelledby="accessibility-heading"] ul {
