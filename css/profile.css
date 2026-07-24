@@ -13,7 +13,7 @@
 /* aside card lists are styled globally in style.css (.page-content aside) */
 
 .page-profile .site-footer p:last-child {
-  font-size: 0.94rem;
+  font-size: var(--font-size-sm);
 }
 
 @media (min-width: 48rem) {

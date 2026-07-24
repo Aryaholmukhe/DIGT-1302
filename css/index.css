@@ -2,10 +2,10 @@
 
 .page-index .dashboard-hero {
   display: grid;
-  gap: 1.15rem;
-  background: linear-gradient(135deg, rgba(30, 58, 95, 0.97) 0%, rgba(42, 157, 143, 0.95) 100%);
+  gap: 1.25rem;
+  background: var(--gradient-brand);
   border: none;
-  box-shadow: 0 20px 38px rgba(19, 42, 69, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .page-index .dashboard-hero h2,
@@ -28,9 +28,9 @@
 
 .page-index .hero-metrics li {
   display: grid;
-  gap: 0.3rem;
+  gap: var(--space-1);
   margin: 0;
-  padding: 0.95rem 1rem;
+  padding: var(--space-4);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.12);
@@ -39,7 +39,7 @@
 }
 
 .page-index .metric-label {
-  font-size: 0.86rem;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -62,12 +62,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.82rem 1.1rem;
-  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
   background: #ffffff;
   color: var(--secondary);
   font-weight: 700;
-  box-shadow: 0 12px 26px rgba(19, 42, 69, 0.18);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -77,7 +77,7 @@
   background: #f8fafc;
   text-decoration: none;
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(19, 42, 69, 0.24);
+  box-shadow: var(--shadow);
 }
 
 .page-index .dashboard-hero .button-link--secondary {
@@ -109,11 +109,11 @@
 /* Summary and course card accent borders come from the shared
    .edge-top-thick / .edge-* utilities in style.css. */
 .page-index .summary-card--gpa {
-  background: linear-gradient(180deg, rgba(42, 157, 143, 0.1) 0%, var(--surface) 100%);
+  background: var(--surface-accent);
 }
 
 .page-index .summary-kicker {
-  font-size: 0.86rem;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -136,7 +136,7 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 0.45rem 0.82rem;
+  padding: var(--space-2) var(--space-3);
   border-radius: 999px;
   font-weight: 700;
 }
@@ -148,7 +148,7 @@
 
 .page-index .status-legend {
   display: grid;
-  gap: 0.78rem;
+  gap: var(--space-3);
   list-style: none;
   padding: 0;
 }
@@ -156,18 +156,17 @@
 .page-index .status-legend li {
   margin: 0;
   display: grid;
-  gap: 0.4rem;
-  padding: 0.82rem 0.9rem;
-  border: 1px solid var(--border-color);
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-sm);
-  background: var(--surface-soft);
+  background: var(--surface);
 }
 
 .page-index .status-key {
   display: inline-flex;
   width: fit-content;
   align-items: center;
-  padding: 0.28rem 0.64rem;
+  padding: var(--space-1) var(--space-3);
   border-radius: 999px;
   font-weight: 700;
 }
@@ -202,8 +201,7 @@
 }
 
 .page-index .course-card--danger {
-  background: linear-gradient(180deg, rgba(239, 68, 68, 0.07) 0%, var(--surface) 100%);
-  box-shadow: 0 18px 34px rgba(239, 68, 68, 0.12);
+  background: rgba(239, 68, 68, 0.06);
 }
 
 .page-index .course-grade {
@@ -217,7 +215,7 @@
   display: inline-flex;
   width: fit-content;
   align-items: center;
-  padding: 0.46rem 0.75rem;
+  padding: var(--space-2) var(--space-3);
   border-radius: 999px;
   font-weight: 700;
 }
@@ -243,8 +241,8 @@
 }
 
 .page-index .course-alert {
-  padding: 0.72rem 0.85rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-sm);
   background: rgba(239, 68, 68, 0.09);
   color: var(--danger-dark);
   font-weight: 700;
@@ -252,7 +250,7 @@
 
 .page-index .course-actions {
   display: grid;
-  gap: 0.65rem;
+  gap: var(--space-2);
   list-style: none;
   padding: 0;
 }
@@ -266,25 +264,21 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0.72rem 0.9rem;
+  padding: var(--space-3) var(--space-4);
   border: 1px solid var(--border-color);
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   font-weight: 700;
 }
 
 .page-index .course-actions a:hover,
 .page-index .course-actions a:focus-visible {
-  background: var(--surface-soft);
+  background: var(--surface-accent);
   text-decoration: none;
 }
 
-.page-index .dashboard-form {
-  background: linear-gradient(180deg, rgba(42, 157, 143, 0.07) 0%, var(--surface) 100%);
-}
-
 .page-index .dashboard-form form {
-  gap: 1.1rem;
+  gap: var(--space-4);
 }
 
 .page-index .dashboard-form form > p:last-child {
@@ -297,23 +291,21 @@
 
 .page-index .quick-tool-list {
   display: grid;
-  gap: 0.9rem;
+  gap: var(--space-3);
   list-style: none;
   padding: 0;
 }
 
 .page-index .quick-tool-list li {
   display: grid;
-  gap: 0.35rem;
+  gap: var(--space-1);
   margin: 0;
-  padding: 0.95rem 1rem;
-  border: 1px solid var(--border-color);
+  padding: var(--space-4);
   border-radius: var(--radius-sm);
-  background: linear-gradient(180deg, var(--surface-soft) 0%, var(--surface) 100%);
+  background: var(--surface-soft);
 }
 
 .page-index .quick-tool-list a {
-  font-size: 1.03rem;
   font-weight: 700;
 }
 
@@ -323,18 +315,16 @@
 
 .page-index .dashboard-collapsible details {
   grid-column: 1 / -1;
-  background: linear-gradient(180deg, rgba(30, 58, 95, 0.05) 0%, var(--surface) 100%);
 }
 
 .page-index .compact-list {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .page-index .compact-list li {
   margin: 0;
-  padding: 0.78rem 0.9rem;
-  border: 1px solid var(--border-color);
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-sm);
   background: var(--surface);
 }

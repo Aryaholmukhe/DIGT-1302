@@ -2,10 +2,6 @@
 
 /* Accent borders come from the shared .edge-left-thick / .edge-* utilities in style.css. */
 
-.page-gpa-overview section[aria-labelledby="formula-heading"] {
-  background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, var(--surface) 100%);
-}
-
 /* Only enforce a minimum width on wider screens; on mobile the shared
    stacked-table layout in style.css lets tables fit the viewport. */
 @media (min-width: 48rem) {

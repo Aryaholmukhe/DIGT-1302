@@ -1,15 +1,5 @@
 /* Contact page styles */
 
-/* Contact option cards use the shared .edge-top / .edge-* utilities in style.css. */
-
-.page-contact section[aria-labelledby="contact-form-heading"] {
-  background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, var(--surface) 100%);
-}
-
-.page-contact form > fieldset:last-of-type {
-  background: linear-gradient(180deg, var(--surface-soft) 0%, var(--surface) 100%);
-}
-
 /* aside card lists are styled globally in style.css (.page-content aside) */
 
 @media (min-width: 48rem) {

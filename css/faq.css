@@ -3,7 +3,7 @@
 .page-faq nav[aria-label="FAQ topic navigation"] ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: var(--space-2);
   list-style: none;
   padding: 0;
 }
@@ -15,15 +15,14 @@
 .page-faq nav[aria-label="FAQ topic navigation"] a {
   display: inline-flex;
   align-items: center;
-  padding: 0.62rem 0.88rem;
+  padding: var(--space-2) var(--space-3);
   border: 1px solid var(--border-color);
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   font-weight: 700;
 }
 
-/* Each FAQ item uses the shared .edge-left utility in style.css; the accent
-   colour is set once per topic section with an .edge-* colour class and
-   inherited by the items via --edge-color. */
+/* Each FAQ item uses the shared .edge-left utility in style.css
+   (single brand accent - status colours are reserved for grades). */
 
 /* aside card lists are styled globally in style.css (.page-content aside) */

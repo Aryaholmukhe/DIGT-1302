@@ -4,17 +4,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 0.9rem;
-  border-radius: 999px;
-  background: var(--surface-accent);
-  border: 1px solid #c8d7e3;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+  border: 1px solid var(--border-color);
   font-weight: 700;
 }
 
 .page-courses table td:last-child a:hover,
 .page-courses table td:last-child a:focus-visible {
   text-decoration: none;
-  background: #e7f2f1;
+  background: var(--surface-accent);
 }
 
 /* Status colour follows the data (data-status), not the row position, so
@@ -37,13 +37,13 @@
 
 .page-courses section[aria-labelledby="tips-heading"] ul {
   display: grid;
-  gap: 0.8rem;
+  gap: var(--space-3);
 }
 
 /* The accent border comes from the shared .edge-left utility in style.css. */
 .page-courses section[aria-labelledby="tips-heading"] li {
   margin: 0;
-  padding: 0.85rem 0.95rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
   background: var(--surface-soft);
 }

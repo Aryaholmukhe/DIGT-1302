@@ -44,6 +44,7 @@ GradeGuard is a client-side web application designed to help university students
 - Mobile-friendly tables: rows stack into labelled cards on small screens so wide tables fit phones
 - Collapsible course panels on the Course Details page so only the selected course shows its details
 - Hover states, keyboard focus states, and reduced-motion support
+- Refined during Phase 3 into a token-driven theme: one brand accent (teal) with green/yellow/red reserved for grade status, a single brand gradient, a 0.25rem spacing grid (`--space-*`), a six-step type scale, two elevation levels, and two corner radii applied consistently across every page
 
 ## Phase 3 — JavaScript Functionality
 JavaScript lives in the `js/` folder, split into two files with a clear purpose:

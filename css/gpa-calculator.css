@@ -2,8 +2,4 @@
 
 /* Accent borders come from the shared .edge-left / .edge-* utilities in style.css. */
 
-.page-gpa-calculator section[aria-labelledby="calculator-heading"] {
-  background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, var(--surface) 100%);
-}
-
 /* aside card lists are styled globally in style.css (.page-content aside) */
