@@ -8,17 +8,7 @@
   justify-self: center;
 }
 
-.page-profile section[aria-labelledby="saved-profile-heading"] > article {
-  border-left: 5px solid var(--primary);
-}
-
-.page-profile section[aria-labelledby="privacy-heading"] > article:nth-of-type(1) {
-  border-top: 4px solid var(--secondary);
-}
-
-.page-profile section[aria-labelledby="privacy-heading"] > article:nth-of-type(2) {
-  border-top: 4px solid var(--accent);
-}
+/* Accent borders come from the shared .edge-* utilities in style.css. */
 
 /* aside card lists are styled globally in style.css (.page-content aside) */
 

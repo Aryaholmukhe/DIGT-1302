@@ -17,19 +17,15 @@
   background: var(--surface);
 }
 
-.page-about section[aria-labelledby="features-heading"] > article {
-  border-top: 4px solid var(--primary);
-}
-
 .page-about section[aria-labelledby="accessibility-heading"] ul {
   display: grid;
   gap: 0.75rem;
 }
 
+/* The accent border comes from the shared .edge-left utility in style.css. */
 .page-about section[aria-labelledby="accessibility-heading"] li {
   margin: 0;
   padding: 0.78rem 0.9rem;
-  border-left: 4px solid var(--secondary);
   background: var(--surface-soft);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }

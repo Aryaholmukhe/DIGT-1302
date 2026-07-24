@@ -37,12 +37,13 @@
       </p>
     </nav>
 
-    <section aria-labelledby="course-tools-heading" id="course-tools">
+    <section aria-labelledby="course-tools-heading" id="course-tools" class="edge-left-thick">
       <h2 id="course-tools-heading">Course Details by Course</h2>
       <p>
-        Each course below has its own detail section, assignment table, and What-If Calculator. The
-        dashboard and course list now link directly to the correct course section instead of sending
-        every course to the same generic view.
+        Each course below has its own collapsible panel with course information, an assignment table,
+        and a What-If Calculator. Select a course heading (or use the links below) to expand only the
+        course you want to review - courses you have not selected stay collapsed, so the page remains
+        short even when many courses are added.
       </p>
       <ul>
         <li><a href="#digt-1302">DIGT 1302 - Web Development Basics</a></li>
@@ -51,293 +52,302 @@
       </ul>
     </section>
 
-    <article id="digt-1302" aria-labelledby="digt-heading">
-      <h2 id="digt-heading">DIGT 1302 - Web Development Basics</h2>
+    <details id="digt-1302" class="course-panel edge-top-thick edge-success" open>
+      <summary><h2 id="digt-heading">DIGT 1302 - Web Development Basics</h2></summary>
 
-      <section aria-labelledby="digt-info-heading">
-        <h3 id="digt-info-heading">Course Information</h3>
-        <p><strong>Course Code:</strong> DIGT 1302</p>
-        <p><strong>Credit Hours:</strong> 3</p>
-        <p><strong>Target Grade:</strong> 85%</p>
-      </section>
+      <div class="course-body">
 
-      <section aria-labelledby="digt-current-grade-heading">
-        <h3 id="digt-current-grade-heading">Current Weighted Grade</h3>
-        <p><strong>Current calculated grade:</strong> 86%</p>
-        <p><strong>Completed coursework weight:</strong> 45%</p>
-        <p><strong>Remaining coursework weight:</strong> 55%</p>
-        <progress max="100" value="45">45%</progress>
-        <p><strong>Status:</strong> Green - 80% and above</p>
-      </section>
+        <section aria-labelledby="digt-info-heading">
+          <h3 id="digt-info-heading">Course Information</h3>
+          <p><strong>Course Code:</strong> DIGT 1302</p>
+          <p><strong>Credit Hours:</strong> 3</p>
+          <p><strong>Target Grade:</strong> 85%</p>
+        </section>
 
-      <section aria-labelledby="digt-assignments-heading">
-        <h3 id="digt-assignments-heading">Assignments</h3>
-        <table aria-label="DIGT 1302 assignment list showing scores and weights">
-          <thead>
-            <tr>
-              <th scope="col">Assignment Name</th>
-              <th scope="col">Your Score (%)</th>
-              <th scope="col">Weight (%)</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Assignment 1 - HTML Basics</td>
-              <td>90%</td>
-              <td>15%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-            <tr>
-              <td>Assignment 2 - CSS Layout</td>
-              <td>85%</td>
-              <td>15%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-            <tr>
-              <td>Midterm Exam</td>
-              <td>82%</td>
-              <td>15%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+        <section aria-labelledby="digt-current-grade-heading">
+          <h3 id="digt-current-grade-heading">Current Weighted Grade</h3>
+          <p><strong>Current calculated grade:</strong> 86%</p>
+          <p><strong>Completed coursework weight:</strong> 45%</p>
+          <p><strong>Remaining coursework weight:</strong> 55%</p>
+          <progress max="100" value="45">45%</progress>
+          <p><strong>Status:</strong> Green - 80% and above</p>
+        </section>
 
-      <section aria-labelledby="digt-add-assignment-heading">
-        <h3 id="digt-add-assignment-heading">Add an Assignment</h3>
-        <form action="#digt-1302" method="get">
-          <p>
-            <label for="digt-assignment-name">Assignment Name</label><br>
-            <input type="text" id="digt-assignment-name" name="digt-assignment-name" placeholder="Example: Final Project" required>
-          </p>
-          <p>
-            <label for="digt-assignment-score">Your Score (%)</label><br>
-            <input type="number" id="digt-assignment-score" name="digt-assignment-score" min="0" max="100" placeholder="Example: 88" required>
-          </p>
-          <p>
-            <label for="digt-assignment-weight">Weight Toward Final Grade (%)</label><br>
-            <input type="number" id="digt-assignment-weight" name="digt-assignment-weight" min="1" max="100" placeholder="Example: 25" required>
-          </p>
-          <p>
-            <button type="submit">Add Assignment</button>
-          </p>
-        </form>
-      </section>
+        <section aria-labelledby="digt-assignments-heading">
+          <h3 id="digt-assignments-heading">Assignments</h3>
+          <table aria-label="DIGT 1302 assignment list showing scores and weights">
+            <thead>
+              <tr>
+                <th scope="col">Assignment Name</th>
+                <th scope="col">Your Score (%)</th>
+                <th scope="col">Weight (%)</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Assignment Name">Assignment 1 - HTML Basics</td>
+                <td data-label="Your Score (%)">90%</td>
+                <td data-label="Weight (%)">15%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+              <tr>
+                <td data-label="Assignment Name">Assignment 2 - CSS Layout</td>
+                <td data-label="Your Score (%)">85%</td>
+                <td data-label="Weight (%)">15%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+              <tr>
+                <td data-label="Assignment Name">Midterm Exam</td>
+                <td data-label="Your Score (%)">82%</td>
+                <td data-label="Weight (%)">15%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
 
-      <section aria-labelledby="digt-whatif-heading" id="digt-1302-what-if-calculator">
-        <h3 id="digt-whatif-heading">What-If Calculator</h3>
-        <p>
-          To finish with 85%, this course currently requires about 84% on the remaining 55% of the
-          coursework.
-        </p>
-        <form action="#digt-1302-what-if-calculator" method="get">
-          <p>
-            <label for="digt-desired-grade">Desired Final Grade (%)</label><br>
-            <input type="number" id="digt-desired-grade" name="digt-desired-grade" min="0" max="100" placeholder="Example: 85" required>
-          </p>
-          <p>
-            <label for="digt-remaining-weight">Weight of Remaining Assessments (%)</label><br>
-            <input type="number" id="digt-remaining-weight" name="digt-remaining-weight" min="1" max="100" placeholder="Example: 55" required>
-          </p>
-          <p>
-            <button type="submit">Calculate Required Score</button>
-          </p>
-        </form>
-      </section>
-    </article>
+        <section aria-labelledby="digt-add-assignment-heading">
+          <h3 id="digt-add-assignment-heading">Add an Assignment</h3>
+          <form action="#digt-1302" method="get">
+            <p>
+              <label for="digt-assignment-name">Assignment Name</label><br>
+              <input type="text" id="digt-assignment-name" name="digt-assignment-name" placeholder="Example: Final Project" required>
+            </p>
+            <p>
+              <label for="digt-assignment-score">Your Score (%)</label><br>
+              <input type="number" id="digt-assignment-score" name="digt-assignment-score" min="0" max="100" placeholder="Example: 88" required>
+            </p>
+            <p>
+              <label for="digt-assignment-weight">Weight Toward Final Grade (%)</label><br>
+              <input type="number" id="digt-assignment-weight" name="digt-assignment-weight" min="1" max="100" placeholder="Example: 25" required>
+            </p>
+            <p>
+              <button type="submit">Add Assignment</button>
+            </p>
+          </form>
+        </section>
 
-    <article id="psyc-1010" aria-labelledby="psyc-heading">
-      <h2 id="psyc-heading">PSYC 1010 - Introduction to Psychology</h2>
+        <section aria-labelledby="digt-whatif-heading" id="digt-1302-what-if-calculator">
+          <h3 id="digt-whatif-heading">What-If Calculator</h3>
+          <p>
+            To finish with 85%, this course currently requires about 84% on the remaining 55% of the
+            coursework.
+          </p>
+          <form action="#digt-1302-what-if-calculator" method="get">
+            <p>
+              <label for="digt-desired-grade">Desired Final Grade (%)</label><br>
+              <input type="number" id="digt-desired-grade" name="digt-desired-grade" min="0" max="100" placeholder="Example: 85" required>
+            </p>
+            <p>
+              <label for="digt-remaining-weight">Weight of Remaining Assessments (%)</label><br>
+              <input type="number" id="digt-remaining-weight" name="digt-remaining-weight" min="1" max="100" placeholder="Example: 55" required>
+            </p>
+            <p>
+              <button type="submit">Calculate Required Score</button>
+            </p>
+          </form>
+        </section>
+      </div>
+    </details>
 
-      <section aria-labelledby="psyc-info-heading">
-        <h3 id="psyc-info-heading">Course Information</h3>
-        <p><strong>Course Code:</strong> PSYC 1010</p>
-        <p><strong>Credit Hours:</strong> 3</p>
-        <p><strong>Target Grade:</strong> 80%</p>
-      </section>
+    <details id="psyc-1010" class="course-panel edge-top-thick edge-warning">
+      <summary><h2 id="psyc-heading">PSYC 1010 - Introduction to Psychology</h2></summary>
 
-      <section aria-labelledby="psyc-current-grade-heading">
-        <h3 id="psyc-current-grade-heading">Current Weighted Grade</h3>
-        <p><strong>Current calculated grade:</strong> 74%</p>
-        <p><strong>Completed coursework weight:</strong> 60%</p>
-        <p><strong>Remaining coursework weight:</strong> 40%</p>
-        <progress max="100" value="60">60%</progress>
-        <p><strong>Status:</strong> Yellow - 60% to 79%</p>
-      </section>
+      <div class="course-body">
 
-      <section aria-labelledby="psyc-assignments-heading">
-        <h3 id="psyc-assignments-heading">Assignments</h3>
-        <table aria-label="PSYC 1010 assignment list showing scores and weights">
-          <thead>
-            <tr>
-              <th scope="col">Assignment Name</th>
-              <th scope="col">Your Score (%)</th>
-              <th scope="col">Weight (%)</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Reflection Essay</td>
-              <td>78%</td>
-              <td>20%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-            <tr>
-              <td>Quiz Set</td>
-              <td>72%</td>
-              <td>15%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-            <tr>
-              <td>Midterm Test</td>
-              <td>73%</td>
-              <td>25%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+        <section aria-labelledby="psyc-info-heading">
+          <h3 id="psyc-info-heading">Course Information</h3>
+          <p><strong>Course Code:</strong> PSYC 1010</p>
+          <p><strong>Credit Hours:</strong> 3</p>
+          <p><strong>Target Grade:</strong> 80%</p>
+        </section>
 
-      <section aria-labelledby="psyc-add-assignment-heading">
-        <h3 id="psyc-add-assignment-heading">Add an Assignment</h3>
-        <form action="#psyc-1010" method="get">
-          <p>
-            <label for="psyc-assignment-name">Assignment Name</label><br>
-            <input type="text" id="psyc-assignment-name" name="psyc-assignment-name" placeholder="Example: Final Exam" required>
-          </p>
-          <p>
-            <label for="psyc-assignment-score">Your Score (%)</label><br>
-            <input type="number" id="psyc-assignment-score" name="psyc-assignment-score" min="0" max="100" placeholder="Example: 81" required>
-          </p>
-          <p>
-            <label for="psyc-assignment-weight">Weight Toward Final Grade (%)</label><br>
-            <input type="number" id="psyc-assignment-weight" name="psyc-assignment-weight" min="1" max="100" placeholder="Example: 20" required>
-          </p>
-          <p>
-            <button type="submit">Add Assignment</button>
-          </p>
-        </form>
-      </section>
+        <section aria-labelledby="psyc-current-grade-heading">
+          <h3 id="psyc-current-grade-heading">Current Weighted Grade</h3>
+          <p><strong>Current calculated grade:</strong> 74%</p>
+          <p><strong>Completed coursework weight:</strong> 60%</p>
+          <p><strong>Remaining coursework weight:</strong> 40%</p>
+          <progress max="100" value="60">60%</progress>
+          <p><strong>Status:</strong> Yellow - 60% to 79%</p>
+        </section>
 
-      <section aria-labelledby="psyc-whatif-heading" id="psyc-1010-what-if-calculator">
-        <h3 id="psyc-whatif-heading">What-If Calculator</h3>
-        <p>
-          To finish with 80%, this course currently requires about 89% on the remaining 40% of the
-          coursework.
-        </p>
-        <form action="#psyc-1010-what-if-calculator" method="get">
-          <p>
-            <label for="psyc-desired-grade">Desired Final Grade (%)</label><br>
-            <input type="number" id="psyc-desired-grade" name="psyc-desired-grade" min="0" max="100" placeholder="Example: 80" required>
-          </p>
-          <p>
-            <label for="psyc-remaining-weight">Weight of Remaining Assessments (%)</label><br>
-            <input type="number" id="psyc-remaining-weight" name="psyc-remaining-weight" min="1" max="100" placeholder="Example: 40" required>
-          </p>
-          <p>
-            <button type="submit">Calculate Required Score</button>
-          </p>
-        </form>
-      </section>
-    </article>
+        <section aria-labelledby="psyc-assignments-heading">
+          <h3 id="psyc-assignments-heading">Assignments</h3>
+          <table aria-label="PSYC 1010 assignment list showing scores and weights">
+            <thead>
+              <tr>
+                <th scope="col">Assignment Name</th>
+                <th scope="col">Your Score (%)</th>
+                <th scope="col">Weight (%)</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Assignment Name">Reflection Essay</td>
+                <td data-label="Your Score (%)">78%</td>
+                <td data-label="Weight (%)">20%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+              <tr>
+                <td data-label="Assignment Name">Quiz Set</td>
+                <td data-label="Your Score (%)">72%</td>
+                <td data-label="Weight (%)">15%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+              <tr>
+                <td data-label="Assignment Name">Midterm Test</td>
+                <td data-label="Your Score (%)">73%</td>
+                <td data-label="Weight (%)">25%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
 
-    <article id="stat-2020" aria-labelledby="stat-heading">
-      <h2 id="stat-heading">STAT 2020 - Statistics</h2>
+        <section aria-labelledby="psyc-add-assignment-heading">
+          <h3 id="psyc-add-assignment-heading">Add an Assignment</h3>
+          <form action="#psyc-1010" method="get">
+            <p>
+              <label for="psyc-assignment-name">Assignment Name</label><br>
+              <input type="text" id="psyc-assignment-name" name="psyc-assignment-name" placeholder="Example: Final Exam" required>
+            </p>
+            <p>
+              <label for="psyc-assignment-score">Your Score (%)</label><br>
+              <input type="number" id="psyc-assignment-score" name="psyc-assignment-score" min="0" max="100" placeholder="Example: 81" required>
+            </p>
+            <p>
+              <label for="psyc-assignment-weight">Weight Toward Final Grade (%)</label><br>
+              <input type="number" id="psyc-assignment-weight" name="psyc-assignment-weight" min="1" max="100" placeholder="Example: 20" required>
+            </p>
+            <p>
+              <button type="submit">Add Assignment</button>
+            </p>
+          </form>
+        </section>
 
-      <section aria-labelledby="stat-info-heading">
-        <h3 id="stat-info-heading">Course Information</h3>
-        <p><strong>Course Code:</strong> STAT 2020</p>
-        <p><strong>Credit Hours:</strong> 4</p>
-        <p><strong>Target Grade:</strong> 70%</p>
-      </section>
+        <section aria-labelledby="psyc-whatif-heading" id="psyc-1010-what-if-calculator">
+          <h3 id="psyc-whatif-heading">What-If Calculator</h3>
+          <p>
+            To finish with 80%, this course currently requires about 89% on the remaining 40% of the
+            coursework.
+          </p>
+          <form action="#psyc-1010-what-if-calculator" method="get">
+            <p>
+              <label for="psyc-desired-grade">Desired Final Grade (%)</label><br>
+              <input type="number" id="psyc-desired-grade" name="psyc-desired-grade" min="0" max="100" placeholder="Example: 80" required>
+            </p>
+            <p>
+              <label for="psyc-remaining-weight">Weight of Remaining Assessments (%)</label><br>
+              <input type="number" id="psyc-remaining-weight" name="psyc-remaining-weight" min="1" max="100" placeholder="Example: 40" required>
+            </p>
+            <p>
+              <button type="submit">Calculate Required Score</button>
+            </p>
+          </form>
+        </section>
+      </div>
+    </details>
 
-      <section aria-labelledby="stat-current-grade-heading">
-        <h3 id="stat-current-grade-heading">Current Weighted Grade</h3>
-        <p><strong>Current calculated grade:</strong> 58%</p>
-        <p><strong>Completed coursework weight:</strong> 40%</p>
-        <p><strong>Remaining coursework weight:</strong> 60%</p>
-        <progress max="100" value="40">40%</progress>
-        <p><strong>Status:</strong> Red - below 60%</p>
-      </section>
+    <details id="stat-2020" class="course-panel edge-top-thick edge-danger">
+      <summary><h2 id="stat-heading">STAT 2020 - Statistics</h2></summary>
 
-      <section aria-labelledby="stat-assignments-heading">
-        <h3 id="stat-assignments-heading">Assignments</h3>
-        <table aria-label="STAT 2020 assignment list showing scores and weights">
-          <thead>
-            <tr>
-              <th scope="col">Assignment Name</th>
-              <th scope="col">Your Score (%)</th>
-              <th scope="col">Weight (%)</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Lab Report 1</td>
-              <td>62%</td>
-              <td>10%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-            <tr>
-              <td>Quiz 1</td>
-              <td>55%</td>
-              <td>10%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-            <tr>
-              <td>Midterm Exam</td>
-              <td>56%</td>
-              <td>20%</td>
-              <td><button type="button" class="button-danger">Remove</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <div class="course-body">
 
-      <section aria-labelledby="stat-add-assignment-heading">
-        <h3 id="stat-add-assignment-heading">Add an Assignment</h3>
-        <form action="#stat-2020" method="get">
-          <p>
-            <label for="stat-assignment-name">Assignment Name</label><br>
-            <input type="text" id="stat-assignment-name" name="stat-assignment-name" placeholder="Example: Final Exam" required>
-          </p>
-          <p>
-            <label for="stat-assignment-score">Your Score (%)</label><br>
-            <input type="number" id="stat-assignment-score" name="stat-assignment-score" min="0" max="100" placeholder="Example: 75" required>
-          </p>
-          <p>
-            <label for="stat-assignment-weight">Weight Toward Final Grade (%)</label><br>
-            <input type="number" id="stat-assignment-weight" name="stat-assignment-weight" min="1" max="100" placeholder="Example: 30" required>
-          </p>
-          <p>
-            <button type="submit">Add Assignment</button>
-          </p>
-        </form>
-      </section>
+        <section aria-labelledby="stat-info-heading">
+          <h3 id="stat-info-heading">Course Information</h3>
+          <p><strong>Course Code:</strong> STAT 2020</p>
+          <p><strong>Credit Hours:</strong> 4</p>
+          <p><strong>Target Grade:</strong> 70%</p>
+        </section>
 
-      <section aria-labelledby="stat-whatif-heading" id="stat-2020-what-if-calculator">
-        <h3 id="stat-whatif-heading">What-If Calculator</h3>
-        <p>
-          To finish with 70%, this course currently requires about 78% on the remaining 60% of the
-          coursework.
-        </p>
-        <form action="#stat-2020-what-if-calculator" method="get">
+        <section aria-labelledby="stat-current-grade-heading">
+          <h3 id="stat-current-grade-heading">Current Weighted Grade</h3>
+          <p><strong>Current calculated grade:</strong> 58%</p>
+          <p><strong>Completed coursework weight:</strong> 40%</p>
+          <p><strong>Remaining coursework weight:</strong> 60%</p>
+          <progress max="100" value="40">40%</progress>
+          <p><strong>Status:</strong> Red - below 60%</p>
+        </section>
+
+        <section aria-labelledby="stat-assignments-heading">
+          <h3 id="stat-assignments-heading">Assignments</h3>
+          <table aria-label="STAT 2020 assignment list showing scores and weights">
+            <thead>
+              <tr>
+                <th scope="col">Assignment Name</th>
+                <th scope="col">Your Score (%)</th>
+                <th scope="col">Weight (%)</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Assignment Name">Lab Report 1</td>
+                <td data-label="Your Score (%)">62%</td>
+                <td data-label="Weight (%)">10%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+              <tr>
+                <td data-label="Assignment Name">Quiz 1</td>
+                <td data-label="Your Score (%)">55%</td>
+                <td data-label="Weight (%)">10%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+              <tr>
+                <td data-label="Assignment Name">Midterm Exam</td>
+                <td data-label="Your Score (%)">56%</td>
+                <td data-label="Weight (%)">20%</td>
+                <td data-label="Action"><button type="button" class="button-danger">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section aria-labelledby="stat-add-assignment-heading">
+          <h3 id="stat-add-assignment-heading">Add an Assignment</h3>
+          <form action="#stat-2020" method="get">
+            <p>
+              <label for="stat-assignment-name">Assignment Name</label><br>
+              <input type="text" id="stat-assignment-name" name="stat-assignment-name" placeholder="Example: Final Exam" required>
+            </p>
+            <p>
+              <label for="stat-assignment-score">Your Score (%)</label><br>
+              <input type="number" id="stat-assignment-score" name="stat-assignment-score" min="0" max="100" placeholder="Example: 75" required>
+            </p>
+            <p>
+              <label for="stat-assignment-weight">Weight Toward Final Grade (%)</label><br>
+              <input type="number" id="stat-assignment-weight" name="stat-assignment-weight" min="1" max="100" placeholder="Example: 30" required>
+            </p>
+            <p>
+              <button type="submit">Add Assignment</button>
+            </p>
+          </form>
+        </section>
+
+        <section aria-labelledby="stat-whatif-heading" id="stat-2020-what-if-calculator">
+          <h3 id="stat-whatif-heading">What-If Calculator</h3>
           <p>
-            <label for="stat-desired-grade">Desired Final Grade (%)</label><br>
-            <input type="number" id="stat-desired-grade" name="stat-desired-grade" min="0" max="100" placeholder="Example: 70" required>
+            To finish with 70%, this course currently requires about 78% on the remaining 60% of the
+            coursework.
           </p>
-          <p>
-            <label for="stat-remaining-weight">Weight of Remaining Assessments (%)</label><br>
-            <input type="number" id="stat-remaining-weight" name="stat-remaining-weight" min="1" max="100" placeholder="Example: 60" required>
-          </p>
-          <p>
-            <button type="submit">Calculate Required Score</button>
-          </p>
-        </form>
-      </section>
-    </article>
+          <form action="#stat-2020-what-if-calculator" method="get">
+            <p>
+              <label for="stat-desired-grade">Desired Final Grade (%)</label><br>
+              <input type="number" id="stat-desired-grade" name="stat-desired-grade" min="0" max="100" placeholder="Example: 70" required>
+            </p>
+            <p>
+              <label for="stat-remaining-weight">Weight of Remaining Assessments (%)</label><br>
+              <input type="number" id="stat-remaining-weight" name="stat-remaining-weight" min="1" max="100" placeholder="Example: 60" required>
+            </p>
+            <p>
+              <button type="submit">Calculate Required Score</button>
+            </p>
+          </form>
+        </section>
+      </div>
+    </details>
   </main>
 
   <footer class="site-footer">

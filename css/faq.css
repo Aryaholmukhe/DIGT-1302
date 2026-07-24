@@ -22,24 +22,8 @@
   font-weight: 700;
 }
 
-.page-faq #general-questions details {
-  border-left: 4px solid var(--primary);
-}
-
-.page-faq #grade-questions details {
-  border-left: 4px solid var(--success);
-}
-
-.page-faq #gpa-questions details {
-  border-left: 4px solid var(--secondary);
-}
-
-.page-faq #privacy-questions details {
-  border-left: 4px solid var(--accent);
-}
-
-.page-faq #troubleshooting-questions details {
-  border-left: 4px solid var(--danger);
-}
+/* Each FAQ item uses the shared .edge-left utility in style.css; the accent
+   colour is set once per topic section with an .edge-* colour class and
+   inherited by the items via --edge-color. */
 
 /* aside card lists are styled globally in style.css (.page-content aside) */

@@ -397,7 +397,8 @@ section > article,
 section > figure,
 section > form,
 article > section,
-aside > article {
+aside > article,
+.course-body > section {
   display: grid;
   gap: 0.9rem;
   padding: 1rem;
@@ -412,6 +413,7 @@ section > article:hover,
 section > figure:hover,
 section > form:hover,
 article > section:hover,
+.course-body > section:hover,
 details:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-card-hover);
@@ -653,6 +655,63 @@ details ul {
   margin-top: 0.8rem;
 }
 
+/* ==================================
+   Accent edge utilities
+   One shared definition for the coloured
+   border accents that were previously
+   repeated across every page stylesheet
+   (DRY). The colour defaults to --primary;
+   pair with an .edge-* colour class (or set
+   --edge-color, which inherits) to change it.
+   ================================== */
+.edge-top {
+  border-top: 4px solid var(--edge-color, var(--primary));
+}
+
+.edge-top-thick {
+  border-top: 5px solid var(--edge-color, var(--primary));
+}
+
+.edge-left {
+  border-left: 4px solid var(--edge-color, var(--primary));
+}
+
+.edge-left-thick {
+  border-left: 5px solid var(--edge-color, var(--primary));
+}
+
+.edge-secondary {
+  --edge-color: var(--secondary);
+}
+
+.edge-accent {
+  --edge-color: var(--accent);
+}
+
+.edge-success {
+  --edge-color: var(--success);
+}
+
+.edge-warning {
+  --edge-color: var(--warning);
+}
+
+.edge-danger {
+  --edge-color: var(--danger);
+}
+
+/* An open <details> tints border-color above; these keep an accent edge
+   visible while the disclosure is expanded. */
+details[open].edge-top,
+details[open].edge-top-thick {
+  border-top-color: var(--edge-color, var(--primary));
+}
+
+details[open].edge-left,
+details[open].edge-left-thick {
+  border-left-color: var(--edge-color, var(--primary));
+}
+
 .site-footer {
   padding: 1.5rem 1rem 2rem;
   color: var(--footer-text);
@@ -770,8 +829,59 @@ details ul {
     padding: 1rem;
   }
 
+  /* Stack each table row into a labelled card so wide tables fit phone
+     screens without horizontal scrolling. Every data cell carries a
+     data-label attribute repeating its column header. */
+  table,
+  tbody,
+  tfoot,
+  tr {
+    display: block;
+  }
+
   table {
-    min-width: 34rem;
+    min-width: 0;
+  }
+
+  thead {
+    /* Visually hidden, but the column headers stay in the accessibility tree. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  tbody tr,
+  tfoot tr {
+    border: 1px solid var(--table-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  tbody tr + tr,
+  tfoot tr {
+    margin-top: 0.8rem;
+  }
+
+  th,
+  td {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, 38%) 1fr;
+    gap: 0.25rem 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  td[data-label]::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--heading);
+  }
+
+  tr > th:last-child,
+  tr > td:last-child {
+    border-bottom: none;
   }
 
   button {

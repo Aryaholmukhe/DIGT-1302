@@ -40,10 +40,10 @@
   gap: 0.8rem;
 }
 
+/* The accent border comes from the shared .edge-left utility in style.css. */
 .page-courses section[aria-labelledby="tips-heading"] li {
   margin: 0;
   padding: 0.85rem 0.95rem;
-  border-left: 4px solid var(--primary);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   background: var(--surface-soft);
 }

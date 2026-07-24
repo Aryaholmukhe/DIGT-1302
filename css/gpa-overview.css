@@ -1,16 +1,17 @@
 /* GPA overview page styles */
 
-.page-gpa-overview section[aria-labelledby="overview-heading"] {
-  border-left: 5px solid var(--primary);
-}
+/* Accent borders come from the shared .edge-left-thick / .edge-* utilities in style.css. */
 
 .page-gpa-overview section[aria-labelledby="formula-heading"] {
-  border-left: 5px solid var(--secondary);
   background: linear-gradient(180deg, rgba(42, 157, 143, 0.08) 0%, var(--surface) 100%);
 }
 
-.page-gpa-overview table {
-  min-width: 32rem;
+/* Only enforce a minimum width on wider screens; on mobile the shared
+   stacked-table layout in style.css lets tables fit the viewport. */
+@media (min-width: 48rem) {
+  .page-gpa-overview table {
+    min-width: 32rem;
+  }
 }
 
 /* aside card lists are styled globally in style.css (.page-content aside) */

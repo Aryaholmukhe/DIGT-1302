@@ -106,13 +106,10 @@
   align-content: start;
 }
 
+/* Summary and course card accent borders come from the shared
+   .edge-top-thick / .edge-* utilities in style.css. */
 .page-index .summary-card--gpa {
   background: linear-gradient(180deg, rgba(42, 157, 143, 0.1) 0%, var(--surface) 100%);
-  border-top: 5px solid var(--primary);
-}
-
-.page-index .summary-card--legend {
-  border-top: 5px solid var(--secondary);
 }
 
 .page-index .summary-kicker {
@@ -204,16 +201,7 @@
   padding-right: 2rem;
 }
 
-.page-index .course-card--good {
-  border-top: 5px solid var(--success);
-}
-
-.page-index .course-card--warning {
-  border-top: 5px solid var(--warning);
-}
-
 .page-index .course-card--danger {
-  border-top: 5px solid var(--danger);
   background: linear-gradient(180deg, rgba(239, 68, 68, 0.07) 0%, var(--surface) 100%);
   box-shadow: 0 18px 34px rgba(239, 68, 68, 0.12);
 }
@@ -256,7 +244,6 @@
 
 .page-index .course-alert {
   padding: 0.72rem 0.85rem;
-  border-left: 4px solid var(--danger);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   background: rgba(239, 68, 68, 0.09);
   color: var(--danger-dark);
