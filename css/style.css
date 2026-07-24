@@ -925,6 +925,11 @@ details[open].edge-left-thick {
     padding-right: 1rem;
   }
 
+  /* Comfortable ~44px touch targets for the stacked navigation. */
+  .main-nav a {
+    padding: var(--space-3);
+  }
+
   .page-content > * {
     padding: 1rem;
   }
