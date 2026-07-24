@@ -7,6 +7,8 @@
   <title>GradeGuard | Profile</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/profile.css">
+  <script src="js/gradeguard-data.js" defer></script>
+  <script src="js/script.js" defer></script>
 </head>
 <body class="site-page page-profile">
   <header class="page-header">
@@ -96,7 +98,7 @@
         to previously entered course information.
       </p>
 
-      <form action="profile.html" method="get">
+      <form action="profile.html" method="get" id="sign-in-form">
         <fieldset>
           <legend>Existing account access</legend>
 
@@ -132,7 +134,7 @@
         academic planning preferences.
       </p>
 
-      <form action="profile.html" method="get">
+      <form action="profile.html" method="get" id="create-account-form">
         <fieldset>
           <legend>Personal information</legend>
 
@@ -249,7 +251,7 @@
 
         <p>
           <input type="checkbox" id="prototype-terms" name="prototype-terms" required>
-          <label for="prototype-terms">I understand this is a Phase 1 HTML prototype and the sign-in system is not yet functional.</label>
+          <label for="prototype-terms">I understand this is a course-project prototype and my information is checked in the browser only, not sent to a server.</label>
         </p>
 
         <p>

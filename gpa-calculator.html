@@ -7,6 +7,8 @@
   <title>GradeGuard | GPA Calculator</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/gpa-calculator.css">
+  <script src="js/gradeguard-data.js" defer></script>
+  <script src="js/script.js" defer></script>
 </head>
 <body class="site-page page-gpa-calculator">
   <header class="page-header">
@@ -38,9 +40,9 @@
     <section aria-labelledby="calculator-intro-heading" class="edge-left-thick">
       <h2 id="calculator-intro-heading">Manual GPA Entry</h2>
       <p>
-        Use this form to enter your course names, course percentages, and credit hours. In the final
-        interactive version, JavaScript will convert the percentages into GPA values and calculate a
-        weighted overall result automatically.
+        Use this form to enter your course names, course percentages, and credit hours. GradeGuard
+        converts each percentage into GPA points and calculates your weighted overall result the
+        moment you press Calculate GPA.
       </p>
       <p>
         If you want to review the GPA scale and see a worked example first, visit the
@@ -51,7 +53,7 @@
     <section aria-labelledby="calculator-heading">
       <h2 id="calculator-heading">GPA Calculation Form</h2>
 
-      <form action="gpa-calculator.html" method="get">
+      <form action="gpa-calculator.html" method="get" id="gpa-calculator-form">
         <p>
           <label for="calculator-scale">Preferred GPA Scale</label><br>
           <select id="calculator-scale" name="calculator-scale">
@@ -127,18 +129,17 @@
     </section>
 
     <section aria-labelledby="result-heading">
-      <h2 id="result-heading">Planned Result Area</h2>
-      <article class="edge-left edge-secondary">
-        <h3>What users will see in the final version</h3>
+      <h2 id="result-heading">Your Result</h2>
+      <article class="edge-left edge-secondary" id="gpa-result-area">
+        <h3>What you will see here</h3>
         <ul>
           <li>A converted GPA point value for each entered course</li>
-          <li>Total weighted GPA points</li>
-          <li>Total credit hours</li>
-          <li>An overall GPA summary message</li>
+          <li>Total weighted GPA points and total credit hours</li>
+          <li>An overall GPA summary with your academic standing</li>
         </ul>
         <p>
-          <strong>Prototype note:</strong> This Phase 1 page shows the calculator layout only. The
-          automatic calculation will be added with JavaScript in a later phase.
+          Fill in at least one course above and press <strong>Calculate GPA</strong> to see your
+          personalized breakdown.
         </p>
       </article>
     </section>

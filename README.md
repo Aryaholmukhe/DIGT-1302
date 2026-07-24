@@ -4,7 +4,7 @@
 
 ## Course
 DIGT 1302 — Web Development Basics, Summer 2026
-Phase 2: Styling and Responsive Design
+Phase 3: Dynamic Behavior and Functionality
 
 ## Team Members
 - Jeffray Zhang, 221999826, jeffray8@my.yorku.ca
@@ -13,18 +13,7 @@ Phase 2: Styling and Responsive Design
 - Steven Passynkov, 221955471, stevenp7@my.yorku.ca
 
 ## Project Description
-GradeGuard is a client-side web application designed to help university students take control of their academic performance. Students can input course assignments and grades, calculate their current course standing, and simulate "what-if" scenarios to determine scores needed on future assessments. It also includes a GPA calculator to provide a comprehensive view of their academic standing.
-
-## Pages Included (9 pages)
-1. `index.html` — Dashboard with academic summary, course overview, and quick tools
-2. `about.html` — About page with mission, team information, and how to use GradeGuard
-3. `contact.html` — Contact form with multiple input types and team contact information
-4. `courses.html` — Course management page with full course list and add course form
-5. `course-detail.html` — Course details hub with separate sections, assignment tables, and What-If tools for each sample course
-6. `gpa-overview.html` — GPA overview page with the conversion chart, weighted formula, and sample GPA breakdown
-7. `gpa-calculator.html` — Manual GPA calculator page for entering course percentages and credit hours
-8. `profile.html` — User profile page with sign in and create account forms
-9. `faq.html` — Frequently asked questions organized by topic (general, grades, GPA, privacy, troubleshooting)
+GradeGuard is a client-side web application designed to help university students take control of their academic performance. Students can add courses and assignments, see their weighted course grades and status update instantly, simulate "what-if" scenarios to determine the scores needed on future assessments, and calculate their weighted GPA. All data is validated in the browser and saved locally with localStorage — no server required.
 
 ## GitHub Repository Link
 [GradeGuard Repository](https://github.com/Aryaholmukhe/DIGT-1302)
@@ -32,23 +21,52 @@ GradeGuard is a client-side web application designed to help university students
 ## GitHub Pages Link
 [GradeGuard Live Site](https://aryaholmukhe.github.io/DIGT-1302/)
 
+## Pages Included (9 pages)
+1. `index.html` — Dashboard with live academic summary, course status cards, and quick tools
+2. `about.html` — About page with mission, team information, and how to use GradeGuard
+3. `contact.html` — Contact form with full JavaScript validation and confirmation summary
+4. `courses.html` — Course management page with live search, add/remove courses, and localStorage persistence
+5. `course-detail.html` — Collapsible per-course panels with assignment tables, add/remove assignments, and a live What-If Calculator
+6. `gpa-overview.html` — GPA conversion chart with an interactive percentage lookup
+7. `gpa-calculator.html` — Manual GPA calculator with validation, extra course rows, and a generated results table
+8. `profile.html` — Sign-in and create-account forms with comprehensive validation
+9. `faq.html` — FAQ with live search, topic filtering, and expand/collapse controls
+
+## Phase 1 — Content Structure
+- Nine semantic HTML pages (header, nav, main, section, article, aside, footer) with a consistent structure
+- Meaningful content for a student grade-tracking application: dashboard summary, course lists, assignment tables, GPA explanations, FAQ, and contact/profile forms
+- Accessible forms with labels, fieldsets, and legends; tables with captions and scoped headers; skip-friendly heading hierarchy
+
+## Phase 2 — Styling and Responsive Design
+- One shared base stylesheet (`css/style.css`) plus one small stylesheet per page in `css/`
+- Consistent academic dashboard identity: navy/teal palette, card-based layout, shared accent-border utility classes to avoid repeated CSS
+- Responsive layouts with flexbox, CSS grid, relative units, and media queries for desktop, tablet, and mobile
+- Mobile-friendly tables: rows stack into labelled cards on small screens so wide tables fit phones
+- Collapsible course panels on the Course Details page so only the selected course shows its details
+- Hover states, keyboard focus states, and reduced-motion support
+
+## Phase 3 — JavaScript Functionality
+JavaScript lives in the `js/` folder, split into two files with a clear purpose:
+
+- **`js/gradeguard-data.js` (the model):** sample course data, localStorage load/save/reset with corrupt-data recovery, and pure calculation functions — weighted course grade, completed/remaining weight, status thresholds, percentage-to-GPA conversion, weighted GPA, and the What-If formula. Contains no DOM code, so the math can be tested on its own.
+- **`js/script.js` (the view/controller):** DOM helpers, a shared feedback-message system, reusable form-validation helpers with inline error messages, renderers that build course rows/cards/panels from data, and one initialiser per page dispatched from the body class on `DOMContentLoaded`.
+
+Highlights:
+- **DOM manipulation:** the dashboard metrics, course table, and every course panel on Course Details are built from data with `createElement`/`append` and escaped `innerHTML` templates; content updates use `textContent`, attribute and class changes (progress bars, status colours, `aria-invalid`, `details.open`)
+- **Event handling:** `submit`, `click` (with event delegation for dynamically created Remove buttons), `input` (live search, live What-If recalculation, character counter), `change` (topic filter, GPA scale, conditional phone requirement), `keydown` (Escape clears search), `mouseover`/`mouseout` (GPA chart row preview), and `DOMContentLoaded`
+- **Form validation:** every form validates on the client with inline error messages next to each field, `aria-invalid` styling, focus on the first invalid field, and a form-level summary; rules include required fields, email format, 9-digit student number, phone digits, password strength and confirmation match, number ranges, future-date checks, minimum message length, and duplicate-course detection
+- **Interactive functionality:** add/remove courses and assignments with instant grade/status/GPA recalculation, live What-If Calculator per course, GPA calculator with a generated results table and academic standing, FAQ live search + filtering, GPA chart lookup with row highlighting, and course search
+- **User feedback:** success/error/warning/info message boxes, confirmation summaries after sign-up and contact submissions, live counters and status lines (`role="status"`/`role="alert"` for screen readers), and graceful handling of invalid input, duplicate data, empty states, and blocked localStorage
+- **Optional features used:** localStorage persistence, data loaded from a local JSON-style structure, smooth scrolling that respects `prefers-reduced-motion`
+
+## Validation and Testing
+- HTML checked with the [W3C Markup Validation Service](https://validator.w3.org/)
+- CSS checked with the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+- JavaScript tested with valid and invalid input on every form, the browser console kept free of errors, and the layout re-checked on desktop, tablet, and mobile widths after dynamic content is added
+
 ## Technologies
-- Semantic HTML5
-- CSS3 with responsive design and media queries
-- Vanilla JavaScript placeholder for Phase 3
+- Semantic HTML5, CSS3, and vanilla JavaScript (ES6)
 - No external frameworks or libraries
-
-## Phase 2 Styling and Responsive Design Improvements
-- Added one shared base stylesheet: `css/style.css`, plus separate page-level stylesheets for each HTML page inside the `css/` folder
-- Created a consistent academic dashboard visual identity with a navy, teal, and neutral color palette, card-based layout, and styled typography
-- Strengthened visual hierarchy by emphasizing dashboard GPA information, course status cards, forms, and quick tools
-- Styled navigation, forms, buttons, tables, figures, and footer content for a unified look and feel
-- Used responsive layout techniques including flexbox, CSS grid, relative units, and media queries
-- Improved usability with hover states, keyboard focus states, readable spacing, and mobile-friendly layout adjustments
-- Styled the profile image responsively and included an external asset credit on the profile page footer
-
-## Validation
-HTML pages should be checked with the [W3C Markup Validation Service](https://validator.w3.org/) and CSS should be checked with the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) before final submission.
 
 ## Credits
 - All main written content: Work by the GradeGuard team (Group 8)

@@ -7,6 +7,8 @@
   <title>GradeGuard | Contact</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contact.css">
+  <script src="js/gradeguard-data.js" defer></script>
+  <script src="js/script.js" defer></script>
 </head>
 <body class="site-page page-contact">
   <header class="page-header">
@@ -92,7 +94,7 @@
         you prefer.
       </p>
 
-      <form action="contact.html" method="get">
+      <form action="contact.html" method="get" id="contact-form">
         <fieldset>
           <legend>Your information</legend>
 
@@ -197,7 +199,7 @@
 
         <p>
           <input type="checkbox" id="contact-consent" name="contact-consent" required>
-          <label for="contact-consent">I understand this Phase 1 contact form is a static HTML prototype and does not yet send live messages.</label>
+          <label for="contact-consent">I understand this contact form validates my message in the browser and does not send live messages yet.</label>
         </p>
 
         <p>
@@ -212,8 +214,8 @@
       <ol>
         <li>Users choose the most relevant topic and related page.</li>
         <li>The form captures enough detail to understand the request clearly.</li>
-        <li>In a later phase, JavaScript can validate entries and show confirmation feedback.</li>
-        <li>The final version can connect this form to a real support or feedback workflow.</li>
+        <li>JavaScript checks every entry and shows inline errors plus a confirmation summary.</li>
+        <li>A future version can connect this form to a real support or feedback workflow.</li>
       </ol>
     </section>
 

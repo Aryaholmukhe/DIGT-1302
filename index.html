@@ -7,6 +7,8 @@
   <title>GradeGuard | Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/index.css">
+  <script src="js/gradeguard-data.js" defer></script>
+  <script src="js/script.js" defer></script>
 </head>
 <body class="site-page page-index">
   <header class="page-header">
@@ -40,15 +42,15 @@
       <ul class="hero-metrics">
         <li>
           <span class="metric-label">Current GPA</span>
-          <strong class="metric-value">3.50 / 4.00</strong>
+          <strong class="metric-value" id="metric-current-gpa">3.50 / 4.00</strong>
         </li>
         <li>
           <span class="metric-label">Active Courses</span>
-          <strong class="metric-value">3</strong>
+          <strong class="metric-value" id="metric-active-courses">3</strong>
         </li>
         <li>
           <span class="metric-label">Needs Attention</span>
-          <strong class="metric-value">1 course</strong>
+          <strong class="metric-value" id="metric-attention">1 course</strong>
         </li>
       </ul>
 
@@ -65,9 +67,9 @@
       <article class="summary-card summary-card--gpa edge-top-thick">
         <p class="summary-kicker">Overall GPA</p>
         <h3>Current academic standing</h3>
-        <p class="summary-value">3.50 <span>/ 4.00</span></p>
-        <p class="summary-status summary-status--good">Good Standing</p>
-        <meter min="0" max="4" value="3.5">3.50 out of 4.00</meter>
+        <p class="summary-value" id="summary-gpa-value">3.50 <span>/ 4.00</span></p>
+        <p class="summary-status summary-status--good" id="summary-standing">Good Standing</p>
+        <meter min="0" max="4" value="3.5" id="summary-gpa-meter">3.50 out of 4.00</meter>
         <p><a href="gpa-overview.html">View GPA breakdown</a></p>
       </article>
 
@@ -78,7 +80,7 @@
           <li><span class="status-key status-key--warning">Yellow</span> 60% to 79% - passing, but keep improving</li>
           <li><span class="status-key status-key--danger">Red</span> Below 60% - needs attention</li>
         </ul>
-        <p><strong>At-risk courses:</strong> 1 course currently needs attention.</p>
+        <p id="at-risk-note"><strong>At-risk courses:</strong> 1 course currently needs attention.</p>
       </article>
     </section>
 
@@ -133,11 +135,11 @@
     <section class="dashboard-form" aria-labelledby="add-course-heading">
       <h2 id="add-course-heading">Add New Course</h2>
       <p>
-        Add a course to your dashboard quickly. In the complete version, submitting this form will
-        create a new course card automatically.
+        Add a course to your dashboard quickly. Submitting this form creates a new course card
+        right away and saves it in your browser, with a default target grade of 85%.
       </p>
 
-      <form action="course-detail.html" method="get">
+      <form action="course-detail.html" method="get" id="dashboard-add-course-form">
         <p>
           <label for="course-name">Course Name</label><br>
           <input type="text" id="course-name" name="course-name" placeholder="Example: Biology 1000" required>
@@ -207,13 +209,13 @@
     <section class="dashboard-collapsible" aria-labelledby="feedback-heading">
       <h2 id="feedback-heading">Feedback You Will See</h2>
       <details>
-        <summary>View planned feedback and alerts</summary>
+        <summary>View feedback and alerts</summary>
         <ul class="compact-list">
-          <li><strong>Form validation:</strong> warnings for missing, negative, or invalid grade values.</li>
+          <li><strong>Form validation:</strong> inline warnings for missing, negative, or invalid grade values.</li>
           <li><strong>Performance indicators:</strong> green, yellow, and red grade status labels.</li>
           <li><strong>Progress bars:</strong> visual summaries of completed course weight.</li>
-          <li><strong>Dynamic grade messages:</strong> clear explanations of what score is needed to reach a target grade.</li>
-          <li><strong>Confirmation messages:</strong> updates after courses or assignments are added or removed.</li>
+          <li><strong>Dynamic grade messages:</strong> the What-If Calculator explains what score is needed to reach a target grade.</li>
+          <li><strong>Confirmation messages:</strong> instant updates after courses or assignments are added or removed.</li>
         </ul>
       </details>
     </section>

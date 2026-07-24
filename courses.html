@@ -7,6 +7,8 @@
   <title>GradeGuard | My Courses</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/courses.css">
+  <script src="js/gradeguard-data.js" defer></script>
+  <script src="js/script.js" defer></script>
 </head>
 <body class="site-page page-courses">
   <header class="page-header">
@@ -58,7 +60,7 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="course-table-body">
           <tr>
             <td data-label="Course Code">DIGT 1302</td>
             <td data-label="Course Name">Web Development Basics</td>
@@ -91,9 +93,9 @@
 
       <p>
         <em>
-          Note: The final version of GradeGuard will allow you to add and remove courses dynamically.
-          New courses will appear in this table after you submit the form below, and each View Details
-          link will open the matching course section on the Course Details page.
+          Courses you add or remove are saved in your browser with localStorage. New courses appear
+          in this table right away, and each View Details link opens the matching course panel on
+          the Course Details page.
         </em>
       </p>
     </section>
@@ -106,7 +108,7 @@
         section, add assignments, and use the What-If Calculator.
       </p>
 
-      <form action="course-detail.html" method="get">
+      <form action="course-detail.html" method="get" id="add-course-form">
         <p>
           <label for="course-name">Course Name</label><br>
           <input type="text" id="course-name" name="course-name" placeholder="Example: Introduction to Psychology" required>
