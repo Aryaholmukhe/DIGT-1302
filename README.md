@@ -13,7 +13,7 @@ Phase 3: Dynamic Behavior and Functionality
 - Steven Passynkov, 221955471, stevenp7@my.yorku.ca
 
 ## Project Description
-GradeGuard is a client-side web application designed to help university students take control of their academic performance. Students can add courses and assignments, see their weighted course grades and status update instantly, simulate "what-if" scenarios to determine the scores needed on future assessments, calculate their weighted GPA, and create an on-device account to sign in and personalize their dashboard. All data is validated in the browser and saved locally with localStorage — passwords are stored only as one-way hashes, and no server is required.
+GradeGuard is a client-side web application designed to help university students take control of their academic performance. Students can add courses and assignments, see their weighted course grades and status update instantly, simulate "what-if" scenarios to determine the scores needed on future assessments, calculate their weighted GPA, and create an on-device account to sign in and personalize their dashboard. All data is validated in the browser and saved locally with localStorage and passwords are stored only as one-way hashes, and no server is required.
 
 ## GitHub Repository Link
 [GradeGuard Repository](https://github.com/Aryaholmukhe/DIGT-1302)
