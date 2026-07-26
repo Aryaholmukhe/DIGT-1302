@@ -74,6 +74,4 @@ Highlights:
 ## Credits
 - All main written content: Work by the GradeGuard team (Group 8)
 - Profile image on `profile.html`: [iStock user profile avatar illustration](https://www.istockphoto.com/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-gm2151669184-572745045?searchscope=image%2Cfilm)
-- [Manrope](https://fonts.google.com/specimen/Manrope) typeface by Mikhail Sharanda, self-hosted in `fonts/` under the [SIL Open Font License 1.1](https://openfontlicense.org/)
-- Built for DIGT 1302 — Web Development Basics at York University, Summer 2026
 - Professor May Haidar
